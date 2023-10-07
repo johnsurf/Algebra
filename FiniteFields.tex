@@ -1,0 +1,58 @@
+\section{Finite Fields}
+
+\begin{theorem}{(Characteristic of a Field):}
+In a field $F$, all non-zero elements have the same additive order. This is called the {\rm characteristic} of $F$ and is said to be zero if all non-zero elements have infinite order. 
+\end{theorem}
+
+\begin{proof}
+Suppose that any given non-zero element $y$ has finite order $m$. Then if $x$ is any other non-zero element, $ (mx)y = m(xy) = x(my) = 0$. But $y\ne 0$ and so $mx = 0$. This is a step that could not be performed in the case of rings, which may have zero divisors. Also, suppose $rx = 0$ for some $r<m$. Then $x(ry) = (rx)y = 0$ as before and since $x\ne 0$, $ry = 0$, which is impossible since $r<m$ and $m$ is the order of $y$. Hence $x$ also has order $m$. 
+\end{proof}
+
+\begin{theorem}
+If $F$ has a finite characteristic, this must be a prime.
+\end{theorem}
+
+\begin{proof}
+Suppose $F$ has as characteristic a composite number $hk$. If $a$ is any non-zero element of $F$, $a^2$ is non-zero and so has order $hk$, so that $hka^2 = 0$, i.e., $(ha)(ka) = 0$ and so either $ha$ or $ka$ is 0, which is impossible, since both $h$ and $k$ are less than $hk$ and $a$ must have order $hk$.  
+\end{proof}
+
+\begin{theorem}
+If $F$ has characteristic p, it contains a subfield isomorphic to the field of residues modulo p.
+\end{theorem}
+
+\begin{proof}
+Consider the unity 1 and denote 1+1 by 2, 1+1+1 by 3, etc. Then 1 has order $p$, and so $p.1 = 0$ (i.e., the sum of the $p$ 1's is the zero element).  Now consider the subset of elements $0,1,2,\hdots,(p-1)$. The sum and difference of any two of these is in the set as are 0 and 1. Furthermore the product of any two is in the set, since the product is the ordinary product of residues modulo $p$, by the Distributive Law. For example, $$2.3 = (1+1)(1+1+1) = 1+1+1+1+1+1 = 6.$$ Since sum and product behave as they do for residues modulo $p$ the subset is isomorphic to the set of residues modulo $p$  under residue sum and product and so, since $p$ is prime, inverses exist in the subset and the subset is isomorphic to the field of residues modulo $p$.
+\end{proof}
+
+\begin{theorem}
+Let $F$ be a field of characteristic 0, it contains a subfield isomorphic to the field of rational numbers.\label{IsoRationals} 
+\end{theorem}
+
+\begin{proof}
+The unity 1 has infinite order and so the elements $0,1,2\hdots$ are all distinct. Consider the subset of all elements $m/n$ where $m$ and $n$ are co-prime, $n$ is non-zero and $m/n$ means $m.n^{-1}$. It is easily seen that this subset contains the sum, difference, product and quotient of any two of its elements (except dividing by 0, of course) and also contains 0 and 1, and so is a subfield, and is trivially isomorphic to the field of rationals. 
+\end{proof}
+
+\begin{definition}
+A finite field is a field which has a finite number of elements. 
+\end{definition}
+
+\begin{theorem}
+Any finite field has a characteristic $p$, for $p$ a finite prime (i.e., it cannot have characteristic 0).
+\end{theorem}
+For by Theorem \ref{IsoRationals}\ a field with characteristic 0 contains an infinite subfield and so must itself be infinite. 
+
+\begin{theorem}
+Let $F$ be a finite field of characteristic $p$. The $F$ has $p^n$ elements, for some positive integer $n$.\label{FiniteField}
+\end{theorem}
+
+\begin{proof}
+Recall that if $F$ has characteristic $p$, then the ring homomorphism $\phi: \Z \rightarrow F$ defined by $\phi(n) = n.1$ for all $n\in \Z$ has kernel $p\Z$, and thus the image of $\phi$ is a subfield $K$ of $F$ isomorphic to $\Z_p$. Since $F$ is finite, it must certainly have finite dimension as a vector space over $K$, say $[F:K] = n$. If $v_1, v_2, \hdots, v_n$ is a basis for $F$ over $K$, then each element of $F$ has the form $a_1v_1 + a_2v_2 + \hdots + a_nv_n$ for elements $a_1, a_2, \hdots, a_n \in K$. Thus to define an elements of $F$ there are $n$ coefficients $a_i$, and for each coefficient there are $p$ choices, since $K$ has only $p$ elements. Therefore the total number of ways in which an element in $F$ can be defined is $p^n$. \qed
+\end{proof}
+
+\begin{theorem}
+Let $F$ be a finite field with $p^n$ elements. Then $F$ is the splitting field of the polynomial $x^{p^n}-x$ over the prime subfield of $F$. 
+\end{theorem}
+
+\begin{proof}
+Let $F$ be a finite field of characteristic $p$. Then as in Theorem \ref{FiniteField} the field $F$ is an extension of degree $n$ of its prime subfield $K$, which is isomorphic to $\Z_p$. Since $F$ has $p^n$ elements, the order of the multiplicative group $F^\times$ of non-zero elements of $F$ is $p^n - 1$. Therefor $x^{p^n-1} \equiv 1$ for all $0\ne x\in F$, and so $x^{p^n} = x$ for all $x\in F$. The polynomial $f(x) = x^{p^n} - x$ has at most $p^n$ roots, and so its roots must be precisely the elements of $F$. Thus $F$ is the splitting field of $f(x)$ over K. \qed
+\end{proof}

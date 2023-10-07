@@ -1,0 +1,23 @@
+\section{Equivalence Relations}
+\begin{theorem}{The equivalence classes theorem}\\
+Suppose in a set $S$ we have a relation $R$ defined between certain pairs of elements, $xRy$ meaning that $x$ and $y$ stand in the given relation $R$.\\
+Suppose further that $R$ has the following 3 properties:
+\begin{itemize}
+\item[(1)] It is reflexive: i.e. $xRx$ for all $x\in S$.
+\item[(2)] It is symmetric: i.e. $xRy \Rightarrow yRx$.
+\item[(3)] It is transitive: i.e. $xRy  \hbox{ and } yRz  \Rightarrow xRz$.
+\end{itemize}
+Then $R$ is an equivalence relations: i.e. it divides $S$ into mutually exclusive subsets so that every element of $S$ is in one and only one subset,
+and so that two elements are in the same subset if and only if they stand in the relation $R$ to one another.
+\end{theorem}
+The subsets are called equivalence classes defined by $R$.\\
+
+Given any element $x$ in $S$ consider all the elements $y$ such that $xRy$. These form a subset of $S$: let us call it $A_x$. We show first that two elements are in the same subset
+$A_x$ if and only if they stand in the relation $R$ to one another. Suppose $yRz$ and $y\in A_x$. Then $xRy$ and so $xRz$ since $R$ is transitive. Hence $z\in A_x$. Conversely, if $y$ and
+$z$ are both in $A_x$ we have $xRy$ and $xRz$, i.e. $yRx$ by the symmetric property and $xRz$: thus $yRz$ by transitivity.\\
+
+For each element $x$ we now have a subset $A_x$, but these will not all be distinct. We will show that two such are either mutually exclusive or else identical. Suppose $A_x$ and $A_y$ both have an 
+element $z$, Then $xRz$ and $yRz$, snf do $zRy$ by the symmetric property; hence $xRy$ by the transitive property. Now take any element $w$ of $A_x$. Then $xRw$ and since $xRy$ we have $yRx$, giving
+$yRw$. So $w$ is in $A_y$. Hence we have shown that if $A_x$ and $A_y$ have one element $z$ in common, any element $w$ of $A_x$ is in $A_y$, i.e, $A_x \subset A_y$. Similarly $A_y\subset A_x$, 
+and so the subsets $A_x$ and $A_y$ are identical.\\
+Thus we have mutually exclusive subsets $A_{x_1}, A_{x_2},....$. Finally by the reflexive property any element $t$ is in one of the subsets, viz. $A_t$.

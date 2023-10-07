@@ -1,0 +1,389 @@
+\section{Logic}
+
+\begin{definition}
+If a statement $A$ leads logically to another statement $B$ we say that `if $A$, then $B$' and write $A \rightarrow B$. Another way to think about implication is that $A\rightarrow B$ can be thought of as `if $A$ is true, then $B$ must be true' (`$B$, if $A$') or that $B$ is {\twelveit necessary} for $A$. This can also be expressed as `$A$ {\twelveit only if} $B$'.
+\end{definition}
+
+$A\rightarrow B$ implies that $A$ being true is sufficient for $B$ to be true. If the we have both $A\rightarrow B$ and $B\rightarrow A$, then we can say that $A$ is {\twelveit necessary and sufficient} for $B$ -- which can also be stated as $A \iff B$.\\
+
+\begin{definition}
+$n$-dimensional Affine Space $\R_n$. An ordered $n$-tuple of real numbers, i.e., a system of $(x_1, x_2, ..., x_n)$ of $n$ real numbers in a definite order, is called a point ($n$ a positive integer). The numbers
+$x_1,x_2, ...,x_n$ are called the coordinates of the point; in particular $x_1$ is called its first, $x_2$ its second, ..., $x_n$ its $n$-th coordinate. Two points $P=(x_1,x_2,...,x_n)$ and $Q = (y_1,y_2,...,y_n)$ are said to 
+be the {\elevenit same} or to coincide if and only if $x_1 = y_1, x_2 = y_2, ..., x_n = y_n$. The totality of all $n$-tuples of real numbers is called $n$-dimensional Affine Space and is denoted by $\R_n$.
+\end{definition}
+
+\begin{definition}{\bf The laws of addition}:\\
+\begin{itemize}
+\item[A1:] The Commutative Law of addition: $x+ y = y + x$ for all pairs of numbers $x$ and $y$.
+\item[A2:] The Associative Law of addition: $(x+y) + z = x + (y+z)$ for any three numbers $x$, $y$ and $z$.
+\item[A3:] The existence of a zero. There is a number, called the zero and denoted by $0$, which has the property that
+$$ x + 0 = x \hbox{~and~} 0 + x = x \hbox{~for all numbers~} x.$$
+\item[A4:] The existence of negatives: Corresponding to each number $x$ there is a number called the negative of $x$ and written $-x$ which satisfies
+$$x + -x = 0\hbox{~and~} -x + x = 0.$$
+\end{itemize}
+\end{definition}
+
+\begin{definition}{\bf Distributive Law}
+\begin{itemize}
+\item[D1:] The Distributive Law:
+\begin{eqnarray*}
+(x+y)z &=& xz + yz\\
+x(y+z) &=& xy + xz
+\end{eqnarray*}
+\end{itemize}
+\end{definition}
+
+%\clearpage
+\begin{definition}{\bf The laws of multiplication}:\\
+\begin{itemize}
+\item[M1:] The Commutative Law of multiplication : $x y = y x$ for all pairs of numbers $x$ and $y$.
+\item[M2:] The Associative Law of multiplication: $(xy)z = x (yz)$ for any three numbers $x$, $y$ and $z$.
+\item[M3:] The existence of a unity. There is a number, called the unity and denoted by $1$, which has the property that
+$$ x1= x \hbox{~and~} 1x = x \hbox{~for all numbers~} x.$$
+\item[M4:] The existence of inverses: Corresponding to each number $x$ there is a number called the inverse of $x$ and written $x^{-1}$ which satisfies
+$$xx^{-1} = 1\hbox{~and~} x^{-1}x = 1.$$
+\end{itemize}
+\end{definition}
+
+\section{Mappings}
+\begin{definition}
+An injective function $f: X\rightarrow Y$ (also known as injection, or one-to-one function) is a function $f$ that maps distinct elements of its domain to distinct elements; that is, $f(x_1) = f(x_2$) implies $x_1 = x_2$. 
+Equivalently, $x_1 \ne x_2$ implies $f(x_1) \ne f(x_2)$ in the equivalent contrapositive statement.
+\end{definition}
+
+\begin{definition}
+A surjective function  $f: X\rightarrow Y$ (also known as surjection, or onto function) is a function $f$ that every element $y$ can be mapped from some element $x$ so that $f(x) = y$. 
+In other words, every element of the function's codomain is the image of at least one element of its domain. It is not required that $x$ be unique; the function $f$ 
+may map one or more elements of the set $X$ to the same element of the set $Y$.
+\end{definition}
+
+\begin{definition}{\bf Homorphisms and Mappings}:\\
+Monomorphism: 1-1, Epimorphism: onto, Isomorphism: 1-1 and onto.\\ Homomorphisms preserve structure (i.e. multiplication and addition in Groups and Rings). \\
+Homomorphisms that have the same object and image space are called Endomorphisms.\\ And Endomorphism that is also an Isomorphism is called and Automorphism.\\
+In a Group G, the mappings of G into itself, given by $g\rightarrow x^{-1} g x$, where $x$ is any fixed element of G, is an Automorphism, known as an Inner Automorphism.\\ 
+\end{definition}
+
+Suppose $f: A \rightarrow B$ and $g: B\rightarrow C$. Hence $(g\circ f) : A \rightarrow C$ exists. Show\\
+(a) If $f$ and $g$ are 1-1 (monomorphisms), then $g\circ f$ is 1-1:\\
+~~~Suppose $(g\circ f)(x) = (g\circ f)(y)$. Then $g(f(x)) = g(f(y))$. Because $g$ is 1-1, $f(x) = f(y)$ and because $f$ is 1-1, $x = y$. Therefore $(g\circ f)(x) = (g\circ f)(y)$, implies $x = y$; hence $g\circ f$ is 1-1. \\
+(b) If $f$ and $g$ are onto (epimorphisms), then $g\circ f$ is onto.\\
+~~~Suppose $c \in C$. Because $g$ is onto, there exists $b \in B$ for which $g(b) = c$. Because $f$ is onto, there exists $a\in A$ for which $f(a) = b$. Thus  $(g\circ f)(a) = g(f(a)) = g(b) = c$, Hence $g\circ f$ is onto. \\ \\
+(c) If $g\circ f$ is 1-1, then $f$ is 1-1.\\ 
+~~~Prove contrapositive, Suppose $f$ is  not 1-1., Then there exists distinct elements $x,y \in A$ for which $f(x) = f(y)$. Then $(g\circ f)(x) = g(f(x)) = g(f(y)) = (g\circ f)(y)$. Hence $g\circ f$ is not 1-1.Therefore if $g\circ f$ is 1-1, then $f$ must be 1-1.\\
+(d) If $g\circ f$ is onto, then $g$ is onto.\\
+~~~Prove contrapositive, If $a \in A$, then $(g\circ f)(a) = g(f(a)) \in g(B)$. Hence $(g\circ f)(A) \subseteq g(B)$. 
+Suppose $g$ is not onto. Then $g(B)$ is properly contained in $C$ and so $(g\circ f)(A)$ is properly contained in C; thus $g\circ f$ is not onto. Therefore if $g\circ f$ is onto, then $g$ must be onto.\\
+
+\section{Linear Dependence}
+\begin{definition}
+Vectors are directed segments. The vector in $\R_n$ whose components are $a_1, a_2,...,a_n$ is denoted by $$\a = \{a_1, a_2, ..., a_n\}\hbox{~(braces)}.$$
+The zero vector in $\R_n$ is denoted as $$\o = \{0,0,...,0\},$$ with $n$ components each 0. 
+\end{definition}
+
+\begin{definition}We call $p$ vectors $\a_1, \a_2, ..., \a_p$ {\bf linearly dependent} if there are $p$ numbers $\lambda_1, \lambda_2,...,\lambda_p$ not all $0$, such that 
+$$\lambda_1 \a_1 + \lambda_2 \a_2 +...+ \lambda_p \a_p = \o\hbox{~ (the zero vector)}.$$
+\end{definition}
+
+If no such $p$ numbers exist, then the $p$ vectors $\a_1, \a_2, ...,\a_p$ are called {\bf linearly independent}.
+
+\begin{theorem} 
+It a subset of the $p$ vectors $\a_1, \a_2,...,\a_p$ is linearly dependent, then the set of $p$ vectors is itself linearly dependent.\label{Th1_1}
+\end{theorem}
+
+Suppose the first $r$ vectors $\a_1, \a_2, ..., \a_r, (r < p) $are linearly dependent. Then there are $r$ numbers $\lambda_1, \lambda_2, ..., \lambda_r$ not all zero such that 
+$$\lambda_1 \a_1 + \lambda_2 \a_2 + ... + \lambda_r \a_r = \o.$$ Setting $\lambda_{r+1}, \lambda_{r+2}, ..., \lambda_p$ to zero we have
+$$\lambda_1 \a_1 + \lambda_2 \a_2 + ... + \lambda_r \a_r + \lambda_{r+1}\a_{r+1} +... + \lambda_p \a_p = \o.$$ where the numbers $\lambda_1, \lambda_2, ..., \lambda_p$ are not all zero. Therefore the 
+$p$ vectors $\a_1, \a_2, ..., \a_p$ are linearly dependent. 
+
+\begin{theorem}
+If the $p$ vectors $\a_1, \a_2, ..., \a_p$ are linearly independent, then so is every subset of these $p$ vectors. \label{Th1_2}
+\end{theorem}
+
+For otherwise, by Theorem \ref{Th1_1}, the $p$ vectors would be linearly dependent.
+
+\begin{theorem}
+If the $p$ vectors $\a_1, \a_2, ..., \a_p$ are linearly dependent and if $p>1$, then at least one of these vectors
+is a linear combination of the others.\label{Th1_3}
+\end{theorem}
+
+For, there are numbers $\lambda_i$, which do not all vanish such that $$\lambda_1 \a_1 + \lambda_2 \a_2 +...+ \lambda_p \a_p = \o.$$ Suppose $\lambda_p \ne 0$. The we can solve for $\a_p$,
+$$\a_p = -{\lambda_1\over \lambda_p}\a_1 -{\lambda_2\over \lambda_p}\a_2 - ... - {\lambda_{p-1}\over \lambda_p} \a_{p-1},$$ i.e. $\a_p$ is a linear combination of the vectors $\a_1, \a_2, ..., \a_{p-1}$.  
+
+\begin{theorem}
+If one of the vectors $\a_1, \a_2, ..., \a_p$ is a linear combination of the others, then vectors $\a_1,\a_2,...,\a_p$ are linearly dependent.\label{Th1_4}
+\end{theorem}
+
+Suppose $$\a_1 = \lambda_2 \a_2 + \lambda_3 \a_3 +... + \lambda_p \a_p.$$ Then we have that 
+$$\a_1 - \lambda_2 \a_2 - \lambda_3 \a_3 -... - \lambda_p \a_p = \o,$$ and since the coefficient of $\a_1$ is not zero, the vectors $\a_1, \a_2, ... , \a_p$ are linearly dependent. 
+
+\begin{theorem}
+If the vectors $\a_1, \a_2, ..., \a_p$ are linearly independent, and if the vectors $\a_1, \a_2,...\a_p,\b$ are linearly dependent, then $\b$ is a linear
+combination of $\a_1, \a_2, ..., \a_p$.\label{Th1_5}
+\end{theorem}
+
+We have a relation of the form $$\lambda_1 \a_1 + \lambda_2 \a_2 +... + \lambda_p \a_p + \lambda_{p+1} \b =\o,$$ where not all the $\lambda_i$ vanish. Now
+$\lambda_{p+1}$ cannot be 0 because the last term would drop out and then all the other $\lambda_i$ would vanish because of the linear independence of the $\a_i$ vectors. Therefore
+$\lambda_{p+1} \ne 0$ and so we have 
+$$\b = -{\lambda_1\over \lambda_{p+1}}\a_1 -{\lambda_2\over \lambda_{p+1}}\a_2 - ... - {\lambda_p\over \lambda_{p+1}} \a_p.$$
+
+
+\begin{theorem}
+If the vectors $\a_1, \a_2, ..., \a_p$ are linearly independent, and if $\b$ is a not a linear combination of $\a_1, \a_2, ..., \a_p$, then the vectors
+$\a_1, \a_2,...\a_p,\b$ are linearly independent.\label{Th1_6}
+\end{theorem}
+
+Theorem \ref{Th1_6} follows from Theorem \ref{Th1_5}.
+
+\section{Vector Spaces in $\R_n$}
+
+Let $L$ be a {\elevenit non-empty} set of vectors of $\R_n$ with the properties:
+\begin{itemize}
+\item[1.] If $\a$ is a vector of the set $L$, then $\lambda \a$ belongs to $L$ for every real $\lambda$.
+\item[2.] If $\a$ and $\b$ are two (not necessarily distinct) vectors of the set $L$, then the vector $\a +\b$ also belongs to $L$.
+\end{itemize}
+Such a set of vectors, satisfying 1. and 2., is  called a {\bf vector space} in $\R_n$.
+
+\begin{theorem} {\bf Steinitz replacement theorem}. Let $\a_1, \a_2, ..., \a_p$ be any $p$ vectors, and let $L$ be the vector space spanned by them. Let $\b_1, \b_2, ..., \b_q$ be any $q$ linearly independent vectors of 
+$L$. Then we may replace a certain set of $q$ vectors from among the vectors $\a_1, \a_2, ..., \a_p$ by the vectors $\b_1, \b_2, ...,\b_q$ so that the remaining vectors of $\a_1, \a_2, ..., \a_p$ together with the vectors $\b_1, \b_2, ..., \b_q$ span the entire vector space $L$.\label{Th2_1}
+\end{theorem}
+
+\begin{proof}
+Use mathematical induction.
+\end{proof}
+
+\begin{theorem}
+Any set of more than $p$ linear combinations of $p$ given vectors is always linearly dependent.\label{Th2_2}
+\end{theorem}
+
+\begin{theorem}
+The maximal number of linearly independent vectors in $\R_n$ is $n$\label{Th2_3}
+\end{theorem}
+
+\begin{definition}{\bf Dimension and Basis}\\
+Let $L$ be any vector space in $\R_n$. The maximal number of linearly independent vectors is $\le n$. Let $p$ be this maximal number of independent vectors in $L$. We call $p$ the {\bf dimension} of $L$. Thus,
+$$0 \le p \le n.$$
+
+We call any system of $p$ linearly independent vectors of $L$, such as $\a_1, \a_2, ..., \a_p$ a {\bf basis} of $L$.
+\end{definition}
+
+\begin{theorem}
+Every vector of $L$ can be represented in exactly one way as a linear combination of the basis vectors $\a_1, \a_2, ..., \a_p$.\label{Th2_4}
+\end{theorem}
+
+\begin{theorem}
+The dimension of the vector space spanned by the vectors $\a_1, \a_2, ...,\a_p$ is equal to the maximal number of linearly independent vectors among $\a_1, \a_2, ..., \a_p$.\label{Th2_5}
+\end{theorem}
+
+\begin{theorem}
+Any $k ~ (k\le p)$ linearly independent vectors $$\b_1, \b_2, ..., \b_k$$
+ of $L$ can be extended to form a basis of $L$ by suitably adjoining to them $p-k$ other vectors $\a_{k+1}, \a_{k+2}, ..., \a_p$.\label{Th2_6}
+\end{theorem}
+
+Let $L'$ and $L''$ be any two vector spaces in $\R_n$. By the {\bf intersection} $D$ of $L'$ and $L''$ we mean the set of all those vectors belonging to both $L'$ and $L''$.\\
+
+If we form the totality $S$ of all vectors of the form $\a' + \a''$, where $\a'$ belongs to $L'$ and $\a''$ belongs to $L''$. $S$ is called the {\bf sum} of $L'$ and $L''$.
+
+\begin{theorem}
+If the dimensions of the vector spaces $L', L'', D,$ and $S$ are respectively $p', p'', d$ and $s$, then $$p' + p'' = d + s.$$\label{Th2_7}
+\end{theorem}
+
+\section{Linear Spaces}
+
+A linear space $\L_p$ of dimension $p$ is the totality of points of $\R_n$ into which a fixed point $P$ is carried by the vectors of a $p$-dimensional vector space $L$ of $\R_n$. Suppose there are given $p+1$ points 
+$$P_k = (x^1_k, x^2_k,...,x^n_k), ~k = 0, 1, ..., p$$ which do not lie an any linear space of dimension $<p$. Let us consider the vectors $\a_k = \overrightarrow{P_0 P_k}, k = 1, 2, ...,p$. These $p$ vectors are linearly independent.
+For if they were linearly dependent, then the vector space spanned by them would have dimension $<p$. By applying these vectors to this vector space to $P_0$, we obtain a linear space which on the one hand has dimension $<p$, and on
+the other contains the points $P_0, P_1, ..., P_p$, which contradicts our assumption.\\
+
+All points of a linear space are equivalent to one another because any point of it can be used to obtain the entire linear space. 
+
+\section{Linear Equations}
+
+Let a system of $m$ linear equations in $n$ unknowns $x^1, x^2, ..., x^n$ be given in the following form:
+
+%\begin{array*}
+%  x+y+z = 1\\,
+%  x+y+z = \frac{5}{2},\\
+%  x+y+z = 5\\
+%\end{array*}
+
+\begin{equation}
+\begin{array}{cccc}
+a_{11}x^1  &+ ~a_{12}x^2   & + \hdots  &+  a_{1n}x^n   = b_1 \\
+a_{21}x^1  &+ ~ a_{22}x^2   &+ \hdots  &+  a_{2n}x^n   = b_2 \\
+ \cdots       &\cdots            &\cdots      &\cdots                \cdots \\
+a_{i1}x^1   &+  ~a_{i2}x^2    & + \hdots  &+  a_{in}x^n    = b_i \\
+ \cdots       &\cdots            &\cdots      &\cdots                 \cdots\\
+a_{m1}x^1 &+  ~a_{m2}x^2 & + \hdots  & +  a_{mn}x^n = b_m \\
+\end{array}
+\label{LinearSystem}
+\end{equation}
+
+which can be written in the following form based on the rules of matrix multiplication
+
+\begin{equation}
+\begin{bmatrix}
+a_{11} & a_{12}  & \hdots & a_{1n}  \\
+a_{21} & a_{22}  & \hdots & a_{2n}  \\
+\hdotsfor[2]{4}\\
+a_{i1} & a_{i2}  & \hdots & a_{in}  \\
+\hdotsfor[2]{4}\\
+a_{m1} & a_{m2}  & \hdots & a_{mn}  \\
+\end{bmatrix}
+\begin{bmatrix}
+x^1\\
+x^2\\
+.\\
+x^i\\
+.\\
+x^n\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1\\
+b_2\\
+.\\
+b_i\\
+.\\
+b_m\\
+\end{bmatrix}
+\label{MatrixSystem}
+\end{equation}
+
+To every column of the matrix of coefficients we can associate a vector
+$$\a_k = \{a_{1k}, a_{2k},...,a_{mk}\}, ~k = 1,2,...,n.$$
+The original system of equations can be expressed as a single vector equation
+\begin{equation}\a_1 x^2 + \a_2 x^2 + ... + \a_n x^n = \b,\label{VectorSystem}\end{equation} where $\b = \{b_1, b_2, ..., b_m\}$. \\
+
+Consider the vector space $\L$ spanned by the vectors $\a_k, k = 1,...,n$ in $\R_m$. If Eq.(\ref{VectorSystem}) is solvable for $x^1, x^2, ..., x^n$, then $\b$ must be a linear combination of the $\a_k$ and therefore belongs to $\L$. Conversely if $\b$ belongs to $\L$ then Eq.(\ref{VectorSystem}) is solvable. \\
+
+Consider the vector space $\L'$ spanned by the vectors $\a_1, \a_1, ..., \a_n, \b$. A vector $\c$ in $\L'$ is of the form 
+$$\c = \lambda_1 \a_1 + \lambda_2 \a_2 + ... + \lambda_n \a_n + \lambda \b.$$ If $\b$ belongs to $\L$, then Eq. (\ref{VectorSystem}) is satisfied by certain numbers $x^1, x^2, ..., x^n$ which can be substituted for 
+$\b$ and so $\c$ is a linear combination of the $\a_k, k = 1,..., n$ and therefore belongs to $\L$. In this case $\L' \subseteq \L$ and also $\L \subseteq \L'$ and therefore $\L'$ and $\L$ are identical. 
+
+\begin{theorem}
+The equation (\ref{VectorSystem}) is solvable for the $x^i$, if and only if, the maximal number of linearly independent vectors among $\a_1, \a_2, ..., \a_n$ is the same as the maximal number of linearly independent 
+vectors among $\a_1, \a_2, ..., \a_n, \b$.
+\end{theorem}
+
+\begin{definition}
+The {\bf rank} of a matrix is equal to the maximal number of independent column vectors in the matrix. \\ 
+\end{definition}
+
+Consider the following matrix
+
+\[
+\begin{bmatrix}
+a_{11} & a_{12}  & \hdots & a_{1n}  & b_1\\
+a_{21} & a_{22}  & \hdots & a_{2n}  & b_2\\
+\hdotsfor[2]{5}\\
+a_{i1} & a_{i2}  & \hdots & a_{in}  & b_i \\
+\hdotsfor[2]{5}\\
+a_{m1} & a_{m2}  & \hdots & a_{mn}  & b_m\\
+\end{bmatrix}
+\]
+
+obtained by appending the vector $\{b_1, b_2, ..., b_m\}$ to the final column. This matrix is called the {\bf augmented} matrix of the system of equations (\ref{LinearSystem}).
+
+\begin{theorem}
+Eqs. (\ref{LinearSystem}) are solvable for the $x^i$ if and only if the rank of the coefficient matrix of the system (\ref{LinearSystem}) is equal to the rank of the augmented matrix
+\end{theorem}
+
+The following system of equations is called a {\bf homogenous} {\elevenit in the $x^i$}
+\begin{equation}
+\begin{array}{cccc}
+a_{11}x^1  &+ ~a_{12}x^2   & + \hdots  &+  a_{1n}x^n   = 0 \\
+a_{21}x^1  &+ ~ a_{22}x^2   &+ \hdots  &+  a_{2n}x^n   = 0 \\
+ \cdots       &\cdots            &\cdots      &\cdots                \cdots \\
+a_{i1}x^1   &+  ~a_{i2}x^2    & + \hdots  &+  a_{in}x^n    = 0 \\
+ \cdots       &\cdots            &\cdots      &\cdots                 \cdots\\
+a_{m1}x^1 &+  ~a_{m2}x^2 & + \hdots  & +  a_{mn}x^n = 0 \\
+\end{array}
+\label{HomogenousSystem}
+\end{equation}
+
+Any set of numbers $x^1, x^2, ..., x^n$ which satisfy Eq. (\ref{HomogenousSystem}) are now taken to be the components of an $n$-dimensional vector $\mathfrak{r} = \{x^1, x^2, ..., x^n\}$. 
+We call such a vector a {\elevenit vector solution} of the system (\ref{HomogenousSystem}). The totality of vector solutions of the system of equations (\ref{HomogenousSystem}) forms a
+vector space.
+
+\begin{theorem}
+If the coefficient matrix of the system of equations (\ref{HomogenousSystem}) has rank $r$, then the set of vector solutions of this system is an $(n-r)$-dimensional vector space. 
+\end{theorem}
+
+\begin{theorem}
+The system of equations (\ref{HomogenousSystem}) has a non-trivial solution, i.e. a solution $x^1, x^2, ..., x^n$ such that not all the $x^i$ vanish, if and only if, the rank of the matrix of 
+(\ref{HomogenousSystem}) is less than $n$.
+\end{theorem}
+
+\begin{theorem}
+If the number of equations in the system of homogenous equations (\ref{HomogenousSystem}) is less than the number of unknowns, then the system must have non-trivial solutions. 
+\end{theorem}
+
+\begin{theorem}
+All the solutions of a non-homogenous system of equations (\ref{LinearSystem}) are of the form $z = \mathfrak{r} + \eta$, where $\mathfrak{r}$ is a fixed solution of the non-homogenous system (\ref{LinearSystem})
+and $\eta$ runs though all solutions of the corresponding homogenous system (\ref{HomogenousSystem}). 
+\end{theorem}
+
+Let $s$ be the maximal number of linearly independent rows of the matrix row vectors. Let us assume that the rows of the homogenous system are ordered so that the first $s$ rows are independent to 
+start with. This involves no loss of generality since it does not affect that rank. The $i$-th equation of this system is, by definition of the scalar product of two vectors, equivalent to the vector equation
+$$ \a_i \cdot \mathfrak{r} = 0,$$ where we set $\mathfrak{r} = \{x^1, x^2, ..., x^n\}$.
+
+Every system of $n$ numbers $x^1, x^2, ..., x^n$ satisfying the first $s$ equation of (the re-ordered) (\ref{HomogenousSystem}), satisfies all of the equations of (\ref{HomogenousSystem}). Because
+the first $s$-rows are linearly independent, all the rows satisfy a relation of the form
+$$\a_k = \lambda^k_1 \a_1 + \lambda^k_2 \a_2 + ...  + \lambda^k_s \a_s, \hbox{~for~} 1\le k \le m.$$ If we apply the distributive law on the right, we obtain
+$$\a_k \cdot \mathfrak{r} =   \lambda^k_1 (\a_1\cdot \mathfrak{r}) + \lambda^k_2 (\a_2 \cdot \mathfrak{r})+ ...  + \lambda^k_s (\a_s\cdot \mathfrak{r}).$$ Since $\a_i \cdot \mathfrak{r} = 0$ for $i = 1,2, ..., s$ the right hand side 
+of this last equation becomes $0$, so that $$\a_k \cdot \mathfrak{r} = 0, \quad k = 1,2, ..., m,$$ and in particular for $k = s+1, s+2, ..., m$ as was to be proved.\\
+
+The vector space of all the solutions of the first $s$ equations of (\ref{HomogenousSystem}) is thus identical with the space of solutions of the entire system (\ref{HomogenousSystem}). It dimension is this $n-r$
+since $r$ is the rank of the matrix of coefficients in (\ref{MatrixSystem}). It thus follows that the rank of the matrix of the first $s$ equations, i.e of the matrix which consists only of the first $s$ rows of (\ref{HomogenousSystem})
+is equal to $n - (n-r) = r$. But the column vectors of this matrix are vectors with $s$ components. Thus the maximal number of linearly independent column vectors of this matrix is $\le s$ since by previous theorem
+any $s+1$ vectors of $s$-dimensional vector space are linearly dependent. \\
+
+Therefore the maximal number of linearly independent column vectors of a matrix is at most as large as the maximal number of linearly independent row vectors. \\
+
+Now consider the transpose of the matrix of coefficients of (\ref{HomogenousSystem}). The maximal number of independent column vectors of this matrix is $s$, and the maximal number of row vectors is $r$.
+Applying the previous result we also obtain $s\le r$. Hence we have $r \le s$ and $s\le r$ and therefore s = r. Thus we have proved
+
+\begin{theorem}
+The maximal number of linearly independent column vectors of a matrix is equal to the maximal number of linearly independent row vectors of that matrix. 
+\end{theorem}
+
+\begin{theorem}
+With any given vector space $L$ of $\R_n$, we can always associate a system of homogenous linear equations in $n$ unknowns such that all the vectors of $L$, and no others, are vector solutions of this system.
+\end{theorem}\
+
+Let $\a_1, \a_2, ..., \a_p$ be a basis of $L$, where we set $\a_i = \{\a_{i1}, \a_{i2}, ..., \a_{in}\}$. If in addition we set 
+$$\mathfrak{r} = \{ x^1, x^2, ..., x^n\}$$ then the equations 
+
+\begin{equation}\a_i \cdot \mathfrak{r} = 0, \quad i = 1, 2, ..., p,\label{10}\end{equation}
+
+form a system of homogenous linear equations in the unknowns $x^1, x^2, ..., x^n$ whose matrix is
+
+\[
+\begin{bmatrix}
+a_{11} & a_{12}  & \hdots & a_{1n} \\
+a_{21} & a_{22}  & \hdots & a_{2n} \\
+\hdotsfor[2]{4}\\
+a_{i1} & a_{i2}  & \hdots & a_{in}  \\
+\hdotsfor[2]{4}\\
+a_{p1} & a_{p2}  & \hdots & a_{pn}\\
+\end{bmatrix}
+\]
+
+Let $p$ be the dimension of $L$.The rank of this system must be $n-p$. The totality of vectors which are orthogonal to $L$ is a vector space $L'$ of dimension $n-p$. It consists precisely of all the vector solutions of (\ref{10}).\\
+
+We now seek a those vectors which are othogonal to the vector space $L'$ just found, We chose a basis $\b_1, \b_2, ..., \b_{n-p}$ of $L'$.The $\b_i$ as vectors of $L'$ are orthogonal to $L$, and this in particular to 
+$\a_1, \a_2, ... \a_p$. Thus, for $i=1, 2, ..., p$, we have
+
+$$\b_1 \cdot \a_i = 0, ~~\b_2 \cdot \a_2 = 0, ~~..., ~~\b_{n-p} \cdot \a_i = 0.$$
+
+Now just as for $L$, the totality of all vectors orthogonal to $L'$ consists of all the vector solutions of the equations
+\begin{equation}\b_1 \cdot \mathfrak{r} = 0, ~~\b_2 \cdot \mathfrak{r} = 0, ~~..., ~~\b_{n-p} \cdot \mathfrak{r} = 0.\label{11}\end{equation}
+ 
+ Thus the $\a_i, i =1,2, ..., p$ are orthogonal to $L'$. But the vectors which are orthogonal to $L'$ form a vector space $L''$ of dimension $n - (n-p) = p$.Since the vectors $\a_1, \a_2, ..., \a_p$ are in $L''$ and are 
+ linearly independent, then form a basis of $L''$. Therefore $L''$ is identical with $L$. Thus the vectors of $L$ are precisely the vector solutions of equations (\ref{11}), i.e, of a certain system of $n-p$ linear homogenous equations.
+ 
+ \begin{theorem}
+ The point solutions of a solvable system of equations of the type (\ref{LinearSystem}) form a linear space. This space has dimensions $n-r$m where $r$ is the rank of the coefficient matrix of the system. Conversely, every linear
+ space may be represented as the totality of all point solutions of some suitable system of linear equations. 
+ \end{theorem} 
+ 

@@ -1,0 +1,33 @@
+\section{Descartes Rule of Signs}
+
+\begin{theorem}{(Descartes Rule of Signs):}
+The number of variatons of sign in the subsequent terms of a polynomial, $s$, minus the number of positive roots, $p$, is a non-negative even integer.\\
+$$s-p = 2r, \quad r\ge 0$$ 
+\end{theorem}
+
+
+a) $s-p$ is an even integer.\\ \\
+Let $f(x)$ be a polynomial with a positive leading coefficient . \[ f(x) = a_0 x^n + a_1 x^{n-1} + a_2 x^{n-2} + \hdots + a_{n-1} x + a_n, \quad \hbox{and~~~}  a_0 > 0. \]
+Then since the sequence of signs starts and ends with a $+$ we must have an even number of variations $+-$ and $-+$ of sign in the sequence $$+\hdots+.$$ to get back eventually to find the final $+$ sign so $s$ is even.\\
+
+Similarly $p$ is even because the function must start at $y=a_0$ and can only cross the $x$-axis an even number of times to eventually again be in the $y>0$ region. If there are multiple roots of the form $(x-\alpha)^k = 0$ , then these are counted with their respective multiplicity. If $k$ is even, then the function does not cross the $x$-axis at the multiple root. If $k$ is odd, then the function crosses the $x$ axis and goes into the $y<0$ region. In either case, $p$ is even. Hence if $a_0 > 0$, we have that $s-p$ is even. 
+
+Similar arguments hold for the case when $a_0<0$. In that case both $s$ and $p$ are odd numbers and therefore $s-p$ is still even.  
+
+
+b) $s-p$ is non-negative. 
+
+Use induction on the degree of the polynomial.\\
+$n=1$. $x + a_n = 0$. Zero variations if $a_n$ is positive and zero positive roots so $s-p = 0$ is even. If $a_n < 0$ then there is one variation in sign and one positive root, $s=1$ and $p=1$ and $s-p=0$.\\
+
+Induct on $n = k$.  \[ f(x) = a_0 x^k + a_1 x^{k-1} + a_2 x^{k-2} + \hdots + a_{k-1} x + a_k. \] Take the derivative with respect to $x$,
+\[ f'(x) = ka_0 x^{k-1} + (k-1)a_1 x^{k-2} + (k-2)a_2 x^{k-3} + \hdots + a_{k-1}. \] 
+
+Now, since the  $k$  terms that multiply the various $x$ powers are all positive then $$ s= \hbox{sign variation} [a_0,a_1,a_2,\hdots,a_{k-1},a_k]$$ and
+$$s' = \hbox{sign variation} [a_0,a_1,a_2,\hdots,a_{k-1}]$$ Therefore $$s\ge s'$$.\\
+
+Since the roots $p'$ are interspersed between the roots of $f(x)$ by Rolle's theorem, the number of positive roots can be $p-1$ which occur between the roots of $f(x)$ plus possibly one more between $x=0$ and the first root of $\alpha_1$ of $f(x)$, so: $$p' \ge p -1.$$. Therefore we have 
+
+\[ s \ge s' \ge p' \ge p - 1 \] or \[ s- p \ge -1 \]. Part a) shows that $s-p$ must be an even number in all cases, so $s-p\ge -1 \implies s-p \ge 0$. Hence $$s-p=2r, \quad r \ge 0 .$$
+
+

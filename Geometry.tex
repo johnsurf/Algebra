@@ -1,0 +1,415 @@
+ \section{Notes on Riemannian Hypersurfaces}
+ 
+ Let us summarize some facts about Riemannian Geometry:\\
+ 
+Tangent Vectors $\r_j= \partial\r/\partial x^j $, $\a = a^i\r_i$, second derivatives: $\r_{ij} = {\partial^2 \r\over \partial x^i\partial x^j}$
+
+Metric: $\gij= \r_i\cdot\r_j = g_{ji}$ (symmetric).
+
+Dot product: $\a\cdot\b= \gij a^ib^j$.\\
+
+Consider the determinant 
+\begin{equation}
+g = \det \left| \gij \right| =
+\begin{vmatrix}
+g_{11} & g_{12}  & \hdots & g_{1n}  \\
+g_{21} & g_{22}  & \hdots & g_{2n}  \\
+\hdotsfor[2]{4}\\
+g_{i1} & g_{i2}  & \hdots & g_{in}  \\
+\hdotsfor[2]{4}\\
+g_{n1} & g_{n2}  & \hdots & g_{nn}  \\
+\end{vmatrix}
+\end{equation}
+
+
+%Consider an $n$-by-$n$ matrix $A$ with elements $a_{ij}$. Take the columns of $A$ to be $n$-dimensional vectors $$A = \left[ \a_1, \a_2, ...., \a_n \right].$$ Divide these 
+%vectors into to systems. Let the first consist of the $p$ vectors $$\a_{\alpha_1}, \a_{\alpha_2},...,\a_{\alpha_p},  (\alpha_1 < \alpha_2 <...< \alpha_p)$$, the second of the remaining $q =n-p$
+%vectors $$\a_{\beta_1},\a_{\beta_2},...,\a_{\beta_q}, (\beta_1 < \beta_2 < ... < \beta_q, \quad p+q = n).$$ 
+%The Laplace's Expansion Theorem of a determinant in terms of Complementary Minors is given by
+
+
+
+%Affine Connection: 
+%\begin{eqnarray*}
+%\Gamma_{ijm} &=& \r_{ij}\cdot \r_m = \half \left({\partial g_{im}\over \partial x^j} +{\partial g_{jm}\over \partial x^i} - {\partial g_{ij}\over \partial x^m}\right), \\
+%\Gamma^k_{ij} &=& g^{km}\Gamma_{ijm}= \half g^{km}\left({\partial g_{im}\over \partial x^j} +{\partial g_{jm}\over \partial x^i} - {\partial g_{ij}\over \partial x^m}\right).
+%\end{eqnarray*}
+
+%\begin{eqnarray*}
+%\Gamma^j_{ij} &=& \half g^{jm}\left({\partial g_{im}\over \partial x^j} +{\partial g_{jm}\over \partial x^i} - {\partial g_{ij}\over \partial x^m}\right), \\
+%                       &=& \half g^{jm}{\partial g_{jm}\over \partial x^i},       \\
+%                       &=& \half {1\over g}{\partial g\over \partial x^i},\qquad\qquad\hbox{see below,}\\
+%                       &=& \half {\partial \log{g}\over \partial x^i},                 \\
+%                       &=& {1\over\sqrt{g}}{\partial \sqrt{g}\over \partial x^i}.
+%\end{eqnarray*}
+
+We suppose, here and throughout, that $g$ is not zero. Let $\Delta^{ij}$ be the cofactor of $\gij$ in this determinant, so that 
+$$g_{mr} \Delta^{ms} = g_{rm}\Delta^{sm} = \delta^s_r\, g,$$ which follows from the ordinary rules for developing a determinant. \\
+ 
+Let us construct new quantities $\gijinv$. 
+The values of the components of $\gijinv$ are equal to the cofactor of the $\gij$, divided by the full determinant $g$,
+\begin{equation} g^{kl} = g^{-1} \Delta^{kl}.  \label{ginveq} \end{equation} Alternatively the cofactor of $\gij$ can be expressed in terms of $\gijinv$ as folllows
+\begin{equation} \Delta^{ij} = g\,g^{ij}\label{cofactor}. \end{equation}
+$\gijinv$ satisfies the following equations:
+\begin{equation}
+g_{ik}g^{kl}  = \delta^l_i \label{ginv}\hbox{~~inverse}
+\end{equation}
+Now $\gij$ is symmetric and we can also show that $\gijinv$ is symmetric. Multiply Eq. (\ref{ginv}) by $g_{ls}g^{ir}$. The left hand side becomes
+\[ g_{ik}g^{kl} g_{ls}g^{ir} =g_{ki}g^{ir} g^{kl}g_{sl} = \delta^r_k g^{kl} g_{sl} = g_{sl}g^{rl}, \] while the right hand side becomes
+\[ \delta^l_i g_{ls}g^{ir} = g_{is}g^{ir} = g_{si}g^{ir} = \delta^r_s.\] Therefore we obtain 
+\begin{equation}
+g_{sl}g^{rl} = \delta^r_s \hbox{~~inverse}\label{ginvtr}
+\end{equation}
+
+Comparing Eqs (\ref{ginv}) and (\ref{ginvtr}), we find that
+\[ g^{kl} = g^{lk} \]
+
+Since $\gij$ is symmetric, it is obvious that $\gijinv$ should be symmetric also. \\
+
+Let us examine the implications of the above applied to surfaces embedded in $\R^n$. 
+A {\elevenit curve} is defined as the totality of points given by the equations
+
+\begin{equation}
+x^r = f^r(u)\quad (r = 1,2,...,n).\label{curve}
+\end{equation}
+Here $u$ is a parameter and $f^r(u)$ are $n$ functions.\\
+
+Next consider the totality of points given by 
+\begin{equation} x^r = f^r(t^1, t^2, ..., t^m)\quad (r= 1,2,...,n),\label{subspace}\end{equation}
+where the $t$'s are parameters and $m<n$. This set of points forms $V_m$, a subspace of $V_n$. 
+According to the Implicit Function Theorem it is possible to eliminate the parameters from (\ref{subspace}). As long as the system is differentiable enough and the the Jacobian of the first $m$ equations does not vanish, we can 
+find $m$ functions $g^i(x^1,...,x^m)$ such that  \begin{equation} t^i = g^i(x^1,...,x^m) \mbox{ for } i = 1,...,m\end{equation}which implies that the remaining functions $x^r, r = m+1,...,n$ can be written in terms of the first $m$ coordinates 
+$x^1, ..., x^m$ as follows:
+\begin{equation} x^r = f^r(x^1, ..., x^m) \mbox{ for } r = m+1, ..., n\end{equation} In the case of $m=n-1$ there is only one such relation and
+so, elimination gives just one equation 
+
+\begin{equation} \phi(x^1, x^2, ..., x^n) = x^n - f^n(x^1,...,x^m) = 0.\label{hypersurface}\end{equation}
+
+In this case, $V_{n-1}$ divides portions of $V_n$ into two parts for which respectively $\phi$ is positive and negative. $V_{n-1}$ is commonly referred to as a {\elevenit hypersurface} in $V_n$.\\
+
+Let $V_{n}$ be a region of $\R^n$, bounded by a smooth (i.e. sufficiently differentiable) surface $B_{n-1}$, which is an $n-1$ dimensional closed manifold. We take $B_{n-1}$ as an example of a hypersurface $V_{n-1}$.
+We has suppose that $B_{n-1}$ is parameterized by $n-1$ independent parameters $t^\alpha (\alpha = 1,2,...,n-1)$. Let the hypersurface $B_{n-1}$ be defined implicitly by the equation (\ref{hypersurface}).\\
+
+On the surface of $B_{n-1}$, $x^i = x^i(t^\alpha)$, and therefore
+\begin{equation} {\partial \phi\over \partial x^j}{\partial x^j\over \partial t^\alpha} = 0. \label{surfaceTangents} \end{equation}
+
+Equation (\ref{surfaceTangents}) may be regarded as $n-1$  linear conditions upon the $n$ quantities ${\partial \phi / \partial x^j}$. Since the matrix 
+$$\left[
+{\partial x^j \over \partial t^a} 
+\right]$$
+
+is assumed to have its full rank value $n-1$ on $B_{n-1}$, the mutual  ratios of the partials $\partial \phi / \partial x^j$ are fully determined by
+(\ref{surfaceTangents}).\\
+
+For future reference let us define a set of determinants with respect to the change of variables between the $x^i$ and the $t^\alpha$
+
+\begin{equation}
+ D_k = (-1)^{k-1} \det\left[ {\partial(x^1, ..., x^{k-1},x^{k+1},...,x^n)\over \partial (t^1, ..., t^{n-1})} \right], ~~k = 1,2,...,n \label{dsubk}
+ \end{equation}
+The $n$ determinants $D_k$ satisfy the $n-1$ linear conditions 
+\begin{equation} D_k {\partial x^k\over \partial t^\alpha} = 0,\label{DkEq} \end{equation}
+which can be established by noting that the left hand side can be written as an $n$-by-$n$ determinant which has two rows the same and therefore vanishes.
+In view of (\ref{surfaceTangents}, conditions (\ref{DkEq}) imply that the $\partial \phi / \partial x^k$ and $D_k$ are proportional
+\[ {\partial \phi\over \partial x^k} =  \alpha D_k,\] for some scalar factor of proportionality $\alpha$. Hence the $\partial \phi/ \partial x^k$ determine the unit 
+normal to $B_{n-1}$, namely
+
+\begin{eqnarray}
+n_k &=& {1\over \sqrt{(\nabla \phi)^2}} {\partial \phi\over \partial x^k}\\
+n_k &=& {D_k\over\sqrt{g^{ij} D_iD_j}} = {D_k\over D},\label{normB}
+\end{eqnarray}
+where \[ D^2 = g^{ij} D_iD_j = g^{ij} {\partial \phi\over \partial x^i} {\partial \phi\over \partial x^j } \alpha^{-2}.\]
+
+%Covariant Derivative:
+%$$V^i_{;j} = {\partial V^i\over \partial x^j} + V^k\Gamma^i_{kj}.$$
+%$$V_{i;j}  = {\partial V_i\over \partial x^j} - V_k\Gamma^k_{ij}.$$
+%
+%Covariant Divergence of a Contravariant Vector:
+%$$\eqalign{
+%V^j_{;j} &= {\partial V^j\over \partial x^j} + V^i\Gamma^j_{ij},\crno
+%&={1\over\sqrt{g}}\left({\partial (\sqrt{g}V^i)\over\partial x^i}\right).\cr}$$
+%
+%Variation of $g$, Definitions:\hfil\break
+%$g=\cofac(\gab)\gab=\cofac(\gabinv)\gabinv$,\hfil\break
+%$\gabinv=\cofac(\gab)/g$,\hfil\break
+%$\gab =\cofac(\gabinv)/g$.
+%$$\eqalign{\delta g=&\cofac(\gabinv)\delta\gabinv\crno
+%=&g\gab\delta\gabinv.\cr}$$
+%$$\eqalign{\delta\sqrt{-g}=&-\half\delta g/\sqrt{-g}\crno
+%=&\sqrt{-g}(-\half\gab\delta\gabinv).\cr}$$
+%$$\delta(\sqrt{-g}\gmunuinv)= 
+%\sqrt{-g}(\delta\gmunuinv - \half\gab\gmunuinv\delta\gabinv).$$
+%Reduction of unity: Consider a set of n mutually orthogonal unit vectors
+%$$e^j_{(1)},e^j_{(2)},...,e^j_{(n)}$$
+%Then $$\gij e^i_{(l)}e^j_{(m)} = \delta_{lm}.$$
+%If we set $$e_{(m)i} = \gij e^j_{(m)},$$
+%this becomes $$e^i_{(l)}e_{(m)i} = \delta_{lm}.$$ The basis vectors can
+%be arranged into a matrix which is orthogonal. The rows of an orthogonal
+%matrix also form an orthogonal system. This implies 
+%$$\sum^n_{m=1} e^i_{(m)}e_{(m)j} = \delta^i_j.$$ Multiplying this by 
+%$g^{jk}$ and summing over $j$, we get
+%$$\sum^n_{m=1}e^i_{(m)}g^{jk} e_{(m)j} = \delta^i_jg^{jk} = g^{ik}.$$
+%From the above definitions we have:
+%$$g^{jk}e_{(m)j} = g^{jk}g_{jr}e^r_{(m)} = \delta^k_re^r_{(m)} = e^k_{(m)}.$$
+%So we get the well known expression for reduction of unity:
+%$$g^{ik}= \sum^n_{m=1}e^i_{(m)}e^k_{(m)}.$$
+%
+%Curvature Tensor and derivatives:
+%$$R^i_{ jkl} = 
+%{\partial \Gamma^i_{jl}\over\partial u^k} -
+%{\partial \Gamma^i_{jk}\over\partial u^l} +
+%\Gamma^p_{jl}\Gamma^i_{pk} - \Gamma^p_{jk}\Gamma^i_{pl}.$$
+%$$R_{\mu\nu} = R^\rho_{\mu\nu\rho}.$$
+%$$R_{\mu\nu}\delta(\sqrt{-g}\gmunuinv)= 
+%\sqrt{-g}(R_{\mu\nu} - \half\gmunu R)\delta\gmunuinv.$$
+%Let $G_{\mu\nu} = R_{\mu\nu} - \half\gmunu R$, then
+%$$R_{\mu\nu}\delta(\sqrt{-g}\gmunuinv)= 
+%\sqrt{-g}G_{\mu\nu}\delta\gmunuinv.$$
+%
+\section{Hypersurfaces and Concepts of Area}
+Consider an $n-1$ dimensional hypersurface, $B_{n-1}$, embedded in a Riemannian manifold $M_n$ (which we assume to be sufficiently differentiable). Let $x^1,...,x^n$ be local coordinates in $M_n$ and suppose that
+$B_{n-1}$ is represented locally in the form 
+\[ x^j = x^j(t^1, ..., t^{n-1}),  \quad j = 1,...,n \] 
+
+The metric tensor of $M_n$ is denoted by $\gij$. and the metric tensor on $B_{n-1}$ by $\overline{g}_{\alpha\beta}$. These two tensors are related by
+\begin{equation}
+ \gstar= \gij {\partial x^i\over \partial t^\alpha} {\partial x^j\over \partial t^\beta} = {\partial x^i\over \partial t^\alpha} \gij {\partial x^j\over \partial t^\beta} \label{gstar}
+\end{equation}
+
+The element of area (or volume) in $M_n$ is 
+\begin{equation}
+dV = \sqrt{g}\,dx^1...dx^n,\label{areag}
+\end{equation}
+where $g$ is the determinant of the metric tensor in $M_n$. Similarly the element of area (volume) in the hypersurface $B_{n-1}$ is given by 
+\begin{equation}
+dS = \sqrt{\overline{g}}\,dt^1...dt^{n-1}.\label{areagstar}
+\end{equation} 
+We will use (\ref{gstar}) to define the element of area in $B_{n-1}$ based on expansion of the determinant of $\overline{g}$ in terms of products of the various minors in a manner similar to the
+Cauchy-Binet formula or the Laplace expansion of a determinant. Let $S_n$ stand for the set of permutations of the numbers $\{1,2....,n \}$ and let $P$ represent one of the members of $S_n$.\\
+
+$\gstar$ is an ($n$-1)-by-($n$-1) matrix and we can consider its determinant. 
+\begin{equation}
+\overline{g} = \det |\overline{g}| = \sum_{P \in S_{n-1}} \epsilon_{ p_1 p_2 ... p_{n-1}} \overline{g}_{1 p_1}  \overline{g}_{2 p_2} ... \overline{g}_{n-1 p_{n-1}} \label{detgstar}
+\end{equation}
+
+We can think of the right hand side of (\ref{gstar}) as representing the matrix product of three matrices. 
+\begin{eqnarray*}
+J &=&  \left[ {\partial x^i\over \partial t^\alpha} \right] \hbox{~is $n$-by-$(n-1)$},\\ 
+G &=&\bigg[ g \bigg] \hbox{~is $n$-by-$n$}
+\end{eqnarray*}
+ and (\ref{gstar}) can be written in the form:
+\begin{eqnarray*}
+ \overline{g}_{\alpha\beta} &=& \sum_{i,j=1}^n \left[ {\partial x^i\over \partial t^\alpha} \right]^T_{\alpha i} \left[g\right]_{ij} \left[ {\partial x^i\over \partial t^\beta} \right]_{j\beta} = {\partial x^i\over \partial t^\alpha} \gij {\partial x^j\over \partial t^\beta} \hbox{~summation convention on $i$ and $j$}\\
+\bigg[ \gstar\bigg] &=& J^T G J \\
+\end{eqnarray*}
+Inserting this computation into (\ref{detgstar}) we have
+$\gstar$ is an ($n$-1)-by-($n$-1) matrix and we can consider its determinant.  Let $\overline{g} =\det |\overline{g}_{\alpha\beta} |$.
+
+\begin{eqnarray*}
+\overline{g} &=& \sum_{P \in S_{n-1}} \epsilon_{ p_1 p_2 ... p_{n-1}} \sum_{\substack{i1,..,i_{n-1} = 1 \\ k_1,...,k_{n-1}=1}}^n  
+(J^T_{1i_1}G_{i_1k_1}J_{k_1p_1})
+(J^T_{2i_2}G_{i_2k_2}J_{k_2p_2})...
+(J^T_{n-1i_{n-1}}G_{i_{n-1}k_{n-1}}J_{k_{n-1}p_{n-1}})\\
+&=& \sum_{P \in S_{n-1}} \epsilon_{ p_1 p_2 ... p_{n-1}} \sum_{\substack{i1,..,i_{n-1} = 1 \\ k_1,...,k_{n-1}=1}}^n  
+(J^T_{1i_1}...J^T_{n-1i_{n-1}} )
+(G_{i_1k_1}...G_{i_{n-1}k_{n-1}} )
+(J_{k1p_1}...J_{k_{n-1}p_{n-1}} )\\
+&=& \sum_{\substack{i1,..,i_{n-1} = 1 \\ k_1,...,k_{n-1}=1}}^n  
+(J^T_{1i_1}...J^T_{n-1i_{n-1}} )
+(G_{i_1k_1}...G_{i_{n-1}k_{n-1}} )
+\sum_{P \in S_{n-1}} \epsilon_{ p_1 p_2 ... p_{n-1}} (J_{k1p_1}...J_{k_{n-1}p_{n-1}} )\\
+\end{eqnarray*}
+Examining the last term in the sum on the right hand side we find a sum over the $n-1$ set $\{p1,p2,...,p_{n-1}\}$ for a particular choice of index values: $\{k1,...k_{n-1}\}$ 
+\begin{equation}
+\sum_{P \in S_{n-1} }\epsilon_{ p_1 p_2 ... p_{n-1}} (J_{k1p_1}...J_{k_{n-1}p_{n-1}}) = \epsilon_{ k_1 k_2 ... k_{n-1}} | J_k | = \epsilon_{ k_1 k_2 ... k_{n-1}} (-1)^{1+k} D_k
+\end{equation}
+where the index $k$ is not included in $\{k1,...k_{n-1}\}$ and final result involves the respective determinant $D_k$.\\
+
+At this point notice that the sum over the $n-1$ variables $k1,k2,...,k_{n-1}$ involves summing over all values from $1$ to $n$ for each $k_i$, but that these values must be distinct. If $k_i = k_j$ for some pair $i,j$, then the sum is
+zero because of the presence of the permutation symbol $\epsilon_{ k_1 k_2 ... k_{n-1}}$. This means that there are $n-1$ distinct $k$ values chosen from the full set of $n$ values, therefore one of the $k_i$ values is to be omitted in this sum.  Let $k$ stand for this missing value and $J_k$ stand for the matrix $J$ with the $k$-th row deleted. The set of $k_i$ values in any set is also propagated on to the $G_{ik}$ matrices and the corresponding $k$-th column of $G$ will not contribute this particular set of choices. There will be $n$ such cases and therefore we insert a sum over $k=1,2,...,n$ to account for each case in the following. The sum over the $i_1,...,i_{n-1}$ indices follows that same way.
+
+\begin{eqnarray*}
+\overline{g} &=& \sum_{k=1}^n \sum_{\substack{i1,..,i_{n-1} = 1 \\ k_1,...,k_{n-1}=1, \ne k}}^n  
+(J^T_{1i_1}...J^T_{n-1i_{n-1}} )
+(G_{i_1k_1}...G_{i_{n-1}k_{n-1}} )
+\epsilon_{ k_1 k_2 ... k_{n-1}} (-1)^{1+k} D_{k}\\
+&=& \sum_{i, k =1}^n \sum_{i1,..,i_{n-1} = 1, \ne i }^n  
+(J^T_{1i_1}...J^T_{n-1i_{n-1}} )
+\epsilon_{ i_1 i_2 ... i_{n-1}} (-1)^{i + k} \hbox{cofactor}(g_{ik})
+ (-1)^{1+k} D_{k}\\
+&=& \sum_{i, k =1}^n \sum_{~~~i1,..,i_{n-1} = 1,\ne i}^n  
+\epsilon_{ i_1 i_2 ... i_{n-1}} (J^T_{1i_1}...J^T_{n-1i_{n-1}} )
+(-1)^{i + k} \Delta^{ik}
+(-1)^{1+k} D_{k}\\
+&=& \sum_{i,k =1}^n  
+(-1)^{1+i} D_{i}
+(-1)^{i + k} \Delta^{ik}
+(-1)^{1+k} D_{k}\\
+&=& \sum_{i,k =1}^n  D_{i} \,g \,g^{ik} \,D_{k}= g \sum_{i= 1}^n  D^{k} \,D_{k} = g\, D^2,\\ 
+\label{expdetgstar}
+\end{eqnarray*}
+
+where $g = |\gij|$ as before and the sum is over the $n$ values of $i$ and $k$ which correspond to the rows or columns which are crossed out to form the $n$ minors each of dimension ($n$-1)-by-($n$-1). Hence we find that
+$$\overline{g} = g\,D^2.$$
+
+We finally derive the relationship between the element of surface are on the hyperplane $H$ and the metric of the $n$-dimensional Riemann $M_n$ space that $H$ is embedded inside. 
+
+\begin{equation}
+dS = \sqrt{\overline{g}}\,dt^1...dt^{n-1} =  \sqrt{g\,D^2} \,dt^1...dt^{n-1}  \label{relArea}
+\end{equation}
+
+If the $n$-1 dimensional hypersurface $H$ which is embedded in Cartesian $\R^n$ is given in parametric form as follows:
+$$\mathfrak{r}(x) = \{ x, f(x) \} $$ 
+Then $\gij  = I_{n}$ ($n$-by-$n$ identity matrix) and $J$ is an $n$-by-$n-1$ matrix:
+
+\begin{equation}
+J  =
+\begin{bmatrix}
+1 & 0 & \hdots  & 0 \\
+0 & 1  & \hdots & 0 \\
+\hdotsfor[2]{4}\\
+0 & 0  & \hdots & 1 \\
+{\partial f\over \partial x^1} & {\partial f\over \partial x^2}   & \hdots & {\partial f\over \partial x^{n-1}} \\
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+J^T  =
+\begin{bmatrix}
+1 & 0 & \hdots  & & 0 & {\partial f\over \partial x^1}  \\
+0 & 1  & \hdots & & 0 &{\partial f\over \partial x^2}  \\
+\hdotsfor[2]{5}\\
+0 & 0  & \hdots & & 1 &{\partial f\over \partial x^n} \\
+\end{bmatrix}
+\end{equation}
+
+Working out the minors, we find 
+$D_n = 1$ (cross out the last row of $J$), and crossing out any of the other rows $i<n$ inserts a $0$ in the $i$-th diagonal and shifts all the other rows $i+1, ..., n$ up one row. The resulting determinant is equal to  
+$D_k = (-1)^{1+k}{\partial f\over \partial x_k}$
+ 
+Therefore we obtain 
+
+\begin{equation}
+\overline{g} = \sum_{k=1}^n D_k = ({\partial f\over \partial x^1})^2 + ({\partial f\over \partial x^2})^2 + ... +  ({\partial f\over \partial x^n})^2 + 1  
+\end{equation} 
+ 
+And the resulting magnitude, given that $g_{ij} = I_n$ is 
+$\sqrt{D^2} = \sqrt{1 + |\nabla f|^2}$ and
+
+\begin{equation}
+dS = \sqrt{1 + | \nabla f |^2} ~dt^1...dt^{n-1}.\label{Stephen}
+\end{equation}
+
+\section{Application to the Green Theorem}
+
+In Riemannian Geometry the divergence of a vector $\b$ is given by 
+
+$$ \nabla \cdot \b = {1\over \sqrt{g} }  {\partial\over \partial x^i} \big(\sqrt{g}\, b^i\big) \hbox{~summation convention}$$
+
+Let us form the integral of the divergence of $\b$ over a region $R$ in $V_n$ bounded by the closed surface $B_{n-1}$
+
+\begin{equation}
+\int_{R} \, \nabla \cdot \b\, dV = \int_R \, {1\over \sqrt{g} }  {\partial\over \partial x^i} \,\big(\sqrt{g}\, b^i\big)\,  dV =\int_R\, {1\over \sqrt{g} }  {\partial\over \partial x^i} \big(\sqrt{g}\, b^i\big)\,\sqrt{g}\, dx^1...dx^n 
+\end{equation}
+
+Now let us integrate the differentiated terms over the range of the appropriate variable for each one. We obtain an integral over the boundary surface $B_{n-1}$: for the $k$ term this is ($k$ not summed)
+\begin{equation}
+\int_B \, \sqrt{g}\, b^k dx^1...dx^{k-1}dx^{k+1}...dx^n = \int_B \, \sqrt{g} \, b^k D_k\, dt^1...dt^{n-1},
+\end{equation}
+
+where $D_k$ is given as in (\ref{dsubk}) represents the transformation of the integration variables from the $x^i$ to the coordinates as given on $B_{n-1}$.\\
+
+From the above set of equations we see that 
+\begin{eqnarray*}
+\int_{R_n}\, \nabla \cdot \b \, dV_n &=& \int_{B_{n-1}} \, b^k D_k \sqrt{g}\, dt^1...dt^{n-1}\\
+&=& \int_{B_{n-1}}\, b^k n_k \sqrt{g}\, D\ dt^1...dt^{n-1}\\
+&=& \int_{B_{n-1}} \b \cdot \mathfrak{n} \, dS,
+\end{eqnarray*}
+where $dS$ is given by (\ref{relArea}).
+
+\section{Extension and Stokes' Theorem}
+
+In a space of $n$ dimensions, the {\bf Generalized Kronecker delta} $\delta^{k_1\,k_2\,...\,k_m}_{s_1\,s_2\,...\,s_m}$ for any positive integer $m$ is defined as 
+\begin{itemize}
+\item[]$\delta^{k_1\,k_2\,...k_m}_{s_1\,s_2\,...s_m} = +1$ if $k_1\,k_2\,...k_m$ are distinct integers selected from the range $1, 2, ..., n$, \\
+\null~~~~~~~~~~~~~~~~~~~and if $s_1, s_2, ...,s_m$ is an {\elevenit even} permutation of  $k_1\,k_2\,...k_m$.
+\item[]$\delta^{k_1\,k_2\,...k_m}_{s_1\,s_2\,...s_m} = -1$ if $k_1\,k_2\,...k_m$ are distinct integers selected from the range $1, 2, ..., n$, \\
+\null~~~~~~~~~~~~~~~~~~~and if $s_1, s_2, ...,s_m$ is an {\elevenit odd} permutation of  $k_1\,k_2\,...k_m$.
+\item[]$\delta^{k_1\,k_2\,...k_m}_{s_1\,s_2\,...s_m} = 0$ if any two $k_1\,k_2\,...k_m$ are, equal, or if any two $s_1, s_2, ...,s_m$ are equal, or if the set \\
+\null~~~~~~~~~~~~~~~~~of numbers $\{k_1, k_2, ..., k_m\}$ differs, apart from order, from the set $\{s_1, s_2, ..., s_m\}$.
+\end{itemize} 
+
+In a space of $n$ dimensions, in which no metric is assigned, consider a subspace $V_m$ of $m$ dimensions $m\le n$ defined by the parametric equations
+$$x^k = x^k(y^1, y^2, ..., y^m),~ k = 1, 2, ..., n.$$ In this $V_m$ consider a certain region of $R_m$. Let us divide $R_m$ into cells by $m$ families of surfaces
+$$f^\alpha(y) = c^\alpha,~ \alpha = 1, 2, ..., m.$$ where $c^\alpha$ are constants, each taking on a number of discrete values and so forming a family of surfaces.\\
+
+It is easy to attach a meaning to the statement that a point $P$ of $V_m$ lies in a certain cell, because $P$ may be said to lie between two surfaces of the same 
+family, say family $\alpha$, if the expression $f^\alpha(y) - c^\alpha$ changes sign when we change $c^\alpha$ from the value belonging to one of these surfaces to 
+the value belonging to the other. Here $y$ refers to the parameter values at the point $P$.\\
+
+Now pick one of the cells and let $A$ be the point corresponding to one of the corners in the cell. Through $A$ there passes one surface of each family. Let the 
+corresponding constants be $c^1, c^2, ..., c^m$. Passing along the edge for which $c^1$ alone changes, we arrive at another corner $B_1$ for which the constants
+have values $c^1 + \Delta c^1, c^2, ..., c^m$. In passing from $A$ to $B_1$ the parameters change from $y^\alpha$ at $A$ to $y^\alpha + \Delta_1 y^\alpha$ at $B_1$
+and the coordinates from $x^k$ to $x^k + \Delta_1 x^k$. Similarly the parameter values and the coordinates of all corners $B_1, B_2, ..., B_m$ of the cell reached by
+traveling from $A$ along an edge of the cell can be written as 
+\begin{eqnarray*}
+&& y^\alpha + \Delta_\beta y^\alpha,\\
+&&x^\alpha + \Delta_\beta x^k.
+\end{eqnarray*} and we form the determinants 
+
+\begin{equation}
+\Delta^{k_1\,...\,k_m}  =  
+\begin{vmatrix}
+\Delta_1 x^{k_1} & \Delta_1 x^{k_2} & \hdots & \Delta_1 x^{k_m} \\
+\Delta_2 x^{k_1} & \Delta_2 x^{k_2} & \hdots & \Delta_2 x^{k_m} \\
+\hdotsfor[2]{4}\\
+\hdotsfor[2]{4}\\
+\Delta_m x^{k_1} & \Delta_m x^{k_2} & \hdots & \Delta_m x^{k_m} \\
+\end{vmatrix}\label{detDeltak}
+\end{equation}
+Introducing the generalized Kronecker delta $\delta^{k_1\,k_2\,...\,k_m}_{s_1\,s_2\,...\,s_m}$, these determinants can be written compactly using the Summation Convention
+\begin{equation}
+\Delta^{k_1\,...\,k_m}  =  \delta^{k_1\,k_2\,...\,k_m}_{s_1\,s_2\,...\,s_m}\, \Delta_1 x^{s_1}\, \Delta_2 x^{s_2} \hdots \Delta_m x^{s_m}\label{Deltaktensor}
+\end{equation}
+Now if the edges had been taken in a different order, then the various determinants might have opposite signs, but apart from this the determinants are independent of the order taken. 
+Also if we have used a different corner to start from the determinants formed similarly would have different values. But since we are going to be working with infinitesimal, the differences 
+will be of higher order than the determinants in (\ref{Deltaktensor}). Using differential displacements, $d_\beta x^i$ (where $\beta$ indexes the $\beta$-th edge of the cell) we have
+\begin{equation}
+d\tau_m^{k_1\,...\,k_m}  =  \delta^{k_1\,k_2\,...\,k_m}_{s_1\,s_2\,...\,s_m}\, d_1 x^{s_1}\, d_2 x^{s_2} \hdots d_m x^{s_m}\label{tauTensor}
+\end{equation}\\
+The set of quantities $d\tau_m^{k_1\,...\,k_m}$ is called the {\elevenit extension} of the infinitesimal $m$-cell. No metrical concepts have entered into the definition of extension. Extension is the 
+nearest concept closest to the idea of elementary volume one can define in a non-metrical space. \\
+
+The edges of the infinitesimal $m$-cell can be written as
+\begin{equation}
+d_\beta x^k =  {\partial x^k \over \partial y^\alpha }\,d_\beta y^\alpha
+\end{equation}
+%+1 & \mbox{if } k1,...,km \mbox{ are distinct integers selected from the range }  1,2,..,n \mbox{ and if  } s_1,...,s_m \mbox{ is an even permutation of}      \\ 
+%-1 & \mbox{if } \mbox{ is an odd permutation}\\
+%0  & \mbox{if } \mbox{ has any duplicates}
+%+1 &  \mbox{if $k1,...,km$ are distinct integers \\ %selected from the range $1,2,..,n$ and if $s_1,...,s_m$ is an {\it even} permutation of $k_1,...,km $  \\
+%-1 & \mbox{if } r \ne s   \\ 
+%0 if  
+%\end{cases} \]
+
+
+
+%\begin{equation}
+%\det |\overline{g}| = \sum_{P \in S_{n-1}} \epsilon_{ p_1 p_2 ... p_{n-1}}  \left(\sum_{kl} T
+%\end{equation}
+
+
+
+
+
+%In order to deal with the determinant of the matrix products involved in $\det \gstar$ we define the following sets $J$ and $K$:
+%Let $J$, $K$ be a set of $n-1$ numbers chosen from $1,...,n$. 
+%$$J, K\subset \{1,...,n\} \hbox{~each of cardinality~} n-1.$$
+%Using this notation we can expand the determinant of $\gstar$ as follows
+
+%\begin{equation}
+%\det \left[ \gstar \right] = \sum \epsilon_{ j_1 j_2 ... j_{n-1}} 
+%\end{equation}
+
+%\begin{equation}
+%\det \left[ \gstar \right] = \sum_{J,K}  \det\left[ {\partial x\over \partial t} \right]^T_{\star J} \det\left[ g \right]_{JK} \det\left[ {\partial x\over \partial t} \right]_{K\star} \label{sumdets}
+%\end{equation}

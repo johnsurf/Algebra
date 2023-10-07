@@ -1,0 +1,37 @@
+\section{Subgroups and Cosets}
+\begin{theorem}
+A necessary and sufficient condition for a non-empty subset $H$ to be a\\ subgroup of a group $G$ is that $gh^{-1} \in H$ for all $g, h \in H$.
+\end{theorem}
+
+\begin{itemize}
+\item[(1)] Necessary: If $H$ is a subgroup $h^{-1}\in H$ and so $gh^{-1} \in H$.
+\item[(2)] Sufficient: If $g$ is any element of $H$ we have $gg^{-1} \in H$, i.e, $e\in H$. Hence $eg^{-1} = g^{-1}\in H$, i.e, $H$ contains inverses. Thus if $g,h \in H$, so is $h^{-1}$ and hence
+$g(h^{-1})^{-1} \in H$, i.e. $gh \in H$.
+\end{itemize}
+
+Given a group $G$ and a subgroup $H$ it is possible to decompose the whole group into subsets `parallel' to $H$, two elements being in the same subset if their `difference' is in $H$. This concept is 
+better adapted in the product notation where the difference between $g$ and $k$ is expressed as $k^{-1}g$. We therefore decompose group $G$ into subsets such that $g$ and $k$ are 
+in the same subset if $k^{-1}g\in H$. These subsets are known as cosets and we have a true decomposition into mutually exclusive subsets because $k^{-1}g\in H$ sets up an equivalence
+relation $gRk$ if $k^{-1}g\in H$.
+
+\begin{theorem}{Equivalence Classes of $G$ relative to $H$}
+The relation defined by $gRk$ above is an equivalence relation.
+\end{theorem}
+
+\begin{itemize}
+\item[(1)] Reflexive: For any $g\in H$ we have $gRg$ because $g^{-1}g = e \in H$ since $H$ is a subgroup.
+\item[(2)] Symmetric: If $gRk$ then $k^{-1}g \in H$. Hence its inverse is in H, i.e. $g^{-1}k\in H$ and so $kRq$.
+\item[(3)] Transitive: If $gRk$ and $kRl$ then $k^{-1}g \in H$ and $l^{-1}k \in H$. Hence $(l^{-1}k)(k^{-1}g) = l^{-1}g \in H$ and so $gRl$.
+\end{itemize}
+
+These mutual exclusive classes are called left cosets of $G$ relative to $H$. So if $gRk$ then $kRg$ and $g^{-1}k \in H$ or $k = gh$ for some $h\in H$. Hence the coset containing g is
+precisely the complex $gH$, the set $\{gh\}$ for all $h\in H$.
+
+\begin{theorem}{Left Cosets}
+The left cosets of $G$ relative to $H$ are the complexes $gH,~g\in G$. Any left coset may be expressed in this form for any $g$ in it. Any two cosets are either the same of have
+no element in common.
+\end{theorem}
+
+We may similarly define \it  right cosets \rm of $G$ relative to $H$ as the equivalence classes under the relation given by $gk^{-1}\in H$. They are the complexes $Hg$.\\
+
+We normally will use left cosets and therefore will just refer to them as cosets. 

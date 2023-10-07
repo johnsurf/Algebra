@@ -1,0 +1,245 @@
+\section{Determinants and Their Properties}
+Consider a set of vectors $V = \{ \a_1, \a_2, ...,\a_n\}$ in $\R^n$.
+The Determinant $D(\a_1,\a_2,...,\a_n)$ has the following properties
+\begin{itemize}
+\item[i)] Invariance property: $D(\a_1,\a_2,...,\a_n)$ is to remain unchanged if some $\a_i$ is replaced by $\a_i+\a_j ~~(i \ne j)$;
+\item[ii)] Homogeneity property: $D(\a_1,\a_2,...,\a_n)$ is to go over into $\lambda D(\a_1,\a_2,...,\a_n)$ if $\a_i$ is replaced by $\lambda \a_i$;
+\item[iii)] the Normalization: $D(e_1, e_2,..., e_n) = 1$.
+\end{itemize} The determinant is the unique function of vectors $\{ \a_1, \a_2, ...,\a_n\}$ that satisfy the above properties \cite{Schreier and Sperner}.\\
+
+{\bf Conventions}: We adopt the Range and Summation Conventions:
+
+\begin{definition}
+{\bf Range Convention.} {\it When a small Latin suffix (superscript or subscript) occurs unrepeated in a term, it is understood to take all the values
+$1,2,...,n$, where n is the number of dimensions of the space.} 
+\end{definition} 
+
+\begin{definition}
+{\bf Summation Convention.} {\it When a small Latin suffix is repeated in a term, summation with respect to that suffix is understood, the range of summation
+being $1,2,...,n$.}
+\end{definition}
+
+{\bf Kronecker delta}:
+\[ \delta^s_r = \begin{cases} 1 & \mbox{if } s = r \\0 & \mbox{if } r \ne s\end{cases} \]
+Also, the another form of the  Kronecker delta is $\delta_{rs}$ which satisfies the same cases as above. \\
+
+{\bf Permutation Symbol}: Consider a set $\sigma$ of $\sigma_1, \sigma_2, ..., \sigma_n$ numbers taken from the set $\{1,2,...,n\}$. Let 
+\[ \epsilon_{\sigma_1\sigma_2...\sigma_n}  = 
+\begin{cases}
++1 & \mbox{if }\sigma  \mbox{ is an even permutation of $\{1, 2, ..., n\}$}\\ 
+-1 & \mbox{if }\sigma  \mbox{ is an odd permutation of $\{1, 2, ..., n\}$}\\
+0  & \mbox{if }\sigma  \mbox{ has any duplicates}
+\end{cases} \]
+
+Let the $S_n$ be the set of all permutation of the numbers $\{1,2,...,n\}$. In the case of $n$-by-$n$ matrix $A$ we obtain the complete 
+development of the determinant of $A$ as follows: 
+\begin{equation}
+\det |A| = \sum_{\sigma \in S_{n}} \epsilon_{ \sigma_1 \sigma_2 ... \sigma_{n}} a_{1 \sigma_1} a_{2 \sigma_2} ... a_{n \sigma_n} \label{detA} = 
+\begin{vmatrix}
+a_{11} & a_{12}  & \hdots & a_{1n}  \\
+a_{21} & a_{22}  & \hdots & a_{2n}  \\
+\hdotsfor[2]{4}\\
+a_{i1} & a_{i2}  & \hdots & a_{in}  \\
+\hdotsfor[2]{4}\\
+a_{n1} & a_{n2}  & \hdots & a_{nn}  \\
+\end{vmatrix}
+\end{equation}
+If the rows are permuted by $\rho \in S_n$, we find
+\begin{equation}
+\epsilon_{ \rho_1 \rho_2 ... \rho_{n}}\det |A| = \sum_{\sigma \in S_{n}} \epsilon_{ \sigma_1 \sigma_2 ... \sigma_{n}} a_{\rho_1 \sigma_1} a_{\rho_2 \sigma_2} ... a_{\rho_n \sigma_n} \label{detA}
+\end{equation}
+
+{\bf Cofactor} of an element $a_{rs}$,
+
+\begin{equation}
+M _{rs}= \hbox{cofactor}(a_{rs}) =  \sum_{\sigma \in S_{n},~\sigma_{r} = s } \epsilon_{ \sigma_1 \sigma_2 ... \sigma_{n}} a_{1 \sigma_1}  a_{2 \sigma_2} ... a_{r-1 \sigma_{r-1}} a_{r+1 \sigma_{r+1}} ....a_{n \sigma_n} \label{detA}
+\end{equation}
+
+Relation between cofactors and minors obtained by taking the determinant obtained from $A$ by striking out row $r$ and column $s$ from $A$. We denote such minor determinants by $A_{rs}$ : 
+
+$$M_{rs} = (-1)^{r+s} A_{rs}$$
+
+For every $r$, $1\le r \le n$ we can write $\det |A |$ in terms of a cofactor expansion
+\begin{equation}
+\det |A| = \sum_{s=1}^n  a_{rs} \, M_{rs} = \sum_{s=1}^n\, (-1)^{r+s} \,a_{rs} \,A_{rs}  \label{cofactorExpansion}
+\end{equation}
+
+Also, if there is a mismatch between the row indices between the matrix element and the cofactor or minor, i.e., 
+\begin{equation}
+\sum_{s=1}^n  a_{ks} \, M_{rs} = \sum_{s=1}^n\, (-1)^{r+s} \,a_{ks} \,A_{rs}  = 0, \mbox{ for}\quad k\ne r  \label{cofactorExpansion}
+\end{equation} The case $k\ne r$ corresponds to a determinant with two identical rows and hence vanishes because the rows are linearly dependent.  
+Putting both of the above equations together we find
+\begin{equation}
+\sum_{s=1}^n  a_{ks} \, M_{rs} = \sum_{s=1}^n\, (-1)^{r+s} \,a_{ks} \,A_{rs} = \delta_{kr} \det |A|  \label{cofactorExpansion}
+\end{equation}
+
+{\bf Schur's complement}:
+Suppose p, q are nonnegative integers, and suppose $A$, $B$, $C$, $D$ are respectively $p$-by-$p$, $p$-by-$q$, $q$-by-$p$, and $q$-by-$q$ matrices of complex numbers. Let
+\begin{equation}
+{\displaystyle M=\left[{\begin{matrix}A&B\\C&D\end{matrix}}\right]}
+\end{equation} so that M is a ($p$ + $q$)-by-($p$ + $q$) matrix.\\
+
+If $D$ is invertible, then the Schur complement of the block $D$ of the matrix $M$ is the $p$-by-$p$ matrix defined by
+\begin{equation}
+{\displaystyle M/D:=A - BD^{-1}C.}\label{M/D}
+\end{equation}
+and $$\det M = \det D \det (A - BD^{-1}C).$$
+
+If $A$ is invertible, the Schur complement of the block $A$ of the matrix $M$ is the $q$-by-$q$ matrix defined by
+\begin{equation}
+{\displaystyle M/A:=D - CA^{-1}B.}\label{M/A}
+\end{equation}
+and $$\det M = \det A \det (D - CA^{-1}B).$$
+
+In the case that $A$ or $D$ is singular, substituting a generalized inverse for the inverses on $M/A$ and $M/D$ yields the generalized Schur complement.\\
+
+{\bf Laplace's General Expansion Theorem}:
+Divide the set of integers ${1,2,...,n}$ into two complementary sets $\{\alpha_1, \alpha_2, ..., \alpha_p\}$ and $\{ \beta_1, \beta_2, ..., \beta_q\}$ where $n = p + q$ and
+$$\alpha_1 < \alpha_2 < ... < \alpha_p \mbox{ and } \beta_1 < \beta_2 < ... < \beta_q.$$ These two sets remained fixed throughout the following:
+\begin{equation}
+\det A = \sum_{\substack{\rho_1, \rho_2, ...,\rho_p \\ \rho_1 < \rho_2 < ... < \rho_p}} \, (-1)^{(\alpha_1 + \alpha_2 + ... + \alpha_p + \rho_1 + \rho_2 ... + \rho_p)}
+\begin{vmatrix}
+a_{\alpha_1\rho_1} & a_{\alpha_1\rho_2}  & \hdots & a_{\alpha_1\rho_p}  \\
+a_{\alpha_2\rho_1} & a_{\alpha_2\rho_2}  & \hdots & a_{\alpha_2\rho_p}  \\
+\hdotsfor[2]{4}\\
+a_{\alpha_i\rho_1} & a_{\alpha_i\rho_2}  & \hdots & a_{\alpha_i\rho_p}  \\
+\hdotsfor[2]{4}\\
+a_{\alpha_p\rho_1} & a_{\alpha_p\rho_2}  & \hdots & a_{\alpha_p\rho_p}  \\
+\end{vmatrix}
+\begin{vmatrix}
+a_{\beta_1\sigma_1} & a_{\beta_1\sigma_2}  & \hdots & a_{\beta_1\sigma_q}  \\
+a_{\beta_2\sigma_1} & a_{\beta_2\sigma_2}  & \hdots & a_{\beta_2\sigma_q}  \\
+\hdotsfor[2]{4}\\
+a_{\beta_i\sigma_1} & a_{\beta_i\sigma_2}  & \hdots & a_{\beta_i\sigma_q}  \\
+\hdotsfor[2]{4}\\
+a_{\beta_q\sigma_1} & a_{\beta_q\sigma_2}  & \hdots & a_{\beta_q\sigma_q}  \\
+\end{vmatrix}
+\end{equation}
+ The sets $\{\alpha_1, \alpha_2, ..., \alpha_p\}$ and $\{ \beta_1, \beta_2, ..., \beta_q\}$  were defined to be fixed. 
+ The summation is taken over all $p$-tuples $(\rho_1, \rho_2, ..., \rho_p)$ from among the numbers $1,2,...,n$ for which $\rho_1 < \rho_2 < ... < \rho_p$ and where 
+ $$\sigma_1 < \sigma_2 < ... < \sigma_q$$ are the remaining $q$ integers.\\
+ 
+
+\section{Cauchy-Binet Formula}
+
+ Application 1: {\bf Example Partitioned Matrix and the Cauchy-Binet Formula}
+ \begin{equation}
+ M =
+\left[
+  \begin{array}{cccc|cccc}
+  0 &  0 & \hdots & 0  & b_{11} & b_{12} & \hdots & b_{1n}\\
+  0 & 0 & \hdots  & 0 & b_{21} & b_{22} & \hdots & b_{2n}\\
+  \hdotsfor[2]{3} & \hdots &\hdotsfor[2]{3} & \hdots\\
+  0 & 0 & \hdots  & 0 & b_{m1} & b_{m2} & \hdots & b_{mn}\\
+  \hline
+  c_{11} &  c_{12} &\hdots & c_{1m} & 1 & 0& \hdots & 0\\
+  c_{21} &  c_{22} &\hdots & c_{2m} & 0 & 1& \hdots & 0\\
+  \hdotsfor[2]{3} & \hdots & \hdotsfor[2]{3} & 0\\
+  c_{n1} &  c_{n2} &\hdots & c_{nm} & 0 & 0& \hdots& 1 
+\end{array} \right]
+\end{equation}
+In the above $M$ is an ($m+n$)-by-($m+n$) matrix which is partitioned into: $A$ an $m$-by-$m$ matrix of 0's, $B$ an $m$-by-$n$ matrix, $C$ an $n$-by-$m$ matrix and $D$ is the $n$-by-$n$ Identity matrix. Then using the determinant in the Schur's Complement form we have
+$$\det M = \det D \det(A - BD^{-1}C) = \det (-BC) = (-1)^m \det(BC).$$\\
+
+We can obtain a similar result by row operations. Denote the ($m+i)$ row by $\a_i$.  Adding a multiple of row $i$ to row $j$ does not change the value of $\det M$.
+We successively subtract the $\sum_{i=1}^n b_{k\, i} \a_i$ from the $k$-th row of M, for $k=1, 2, ..., m$ changing M into a different matrix with the same determinant, viz.,
+ \begin{equation}
+ \tilde M=
+\left[
+  \begin{array}{cccc|cccc}
+  -d_{11} &  -d_{12} & \hdots & -d_{1m}  & 0 & 0& \hdots & 0\\
+  -d_{21} & -d_{22}  & \hdots  & -d_{2m}  & 0 & 0 & \hdots & 0\\
+  \hdotsfor[2]{3} & \hdots &\hdotsfor[2]{3} & \hdots\\
+  -d_{m1} & -d_{m2} & \hdots  & -d_{mm} & 0 & 0 & \hdots & 0\\
+  \hline
+  c_{11} &  c_{12} &\hdots & c_{1m} & 1 & 0& \hdots & 0\\
+  c_{21} &  c_{22} &\hdots & c_{2m} & 0 & 1& \hdots & 0\\
+  \hdotsfor[2]{3} & \hdots & \hdotsfor[2]{3} & 0\\
+  c_{n1} &  c_{n2} &\hdots & c_{nm} & 0 & 0& \hdots& 1 
+\end{array} \right],
+\end{equation}where $\displaystyle{d_{kj} = \sum_{i=1}^n \, b_{ki} c_{ij}}, ~\mbox{ for } k,j = 1\,,...,\,m$. Since $\det M = \det \tilde M$ we have another demonstration of 
+\begin{equation}
+\det M = (-1)^m \det (BC)
+\end{equation} where $B$ and $C$ are the matrices corresponding to $b_{kj}$ and $c_{ij}$ respectively.\\
+
+
+Another representation of $\det M$ can be obtained by applying Laplace's Generalized Theorem successively. First swap the bottom $n$ rows with the top $m$ rows (by moving each of the bottom $n$ rows up $m$ positions and changing the sign of $\det M$ accordingly
+\begin{equation}
+\det M = (-1)^{m^2}
+\det \left[
+  \begin{array}{cccc|cccc}
+  c_{11} &  c_{12} &\hdots & c_{1m} & 1 & 0& \hdots & 0\\
+  c_{21} &  c_{22} &\hdots & c_{2m} & 0 & 1& \hdots & 0\\
+  \hdotsfor[2]{3} & \hdots & \hdotsfor[2]{3} & 0\\
+  c_{n1} &  c_{n2} &\hdots & c_{nm} & 0 & 0& \hdots& 1 \\
+  \hline
+  0 &  0 & \hdots & 0  & b_{11} & b_{12} & \hdots & b_{1n}\\
+  0 & 0 & \hdots  & 0 & b_{21} & b_{22} & \hdots & b_{2n}\\
+  \hdotsfor[2]{3} & \hdots &\hdotsfor[2]{3} & \hdots\\
+  0 & 0 & \hdots  & 0 & b_{m1} & b_{m2} & \hdots & b_{mn}
+\end{array} \right]
+\end{equation}
+
+Using Laplace's Generalized Theorem the first time across the bottom $m$ rows and taking advantage of the $m$-by-$m$ block of zeros in the lower left hand corner to drop some of the minors in the expansion we have only a sum over the $m$-by-$m$ minors in the $b_{ij}$ elements starting in columns $m+1$ through $m+n$ of $M$. After forming any one of these minors we have to select $m$ columns to remove to form the algebraic complement to use in the Laplace Theorem. The $n$-by-$n$ complementary minor consists of the $n$-by-$m$ $c_{ij}$ matrix elements with an additional $n-m$ columns which remain in from the former Identity matrix in the upper right hand side of the working matrix.\\
+
+We now apply Laplace's Generalized Theorem a second time, now expanding over the first $m$ columns of the complementary $n$-by$n$ minor. We must again sum over the choice of $m$ rows from the first $n$ rows. The complementary minor to this second set of minors is obtained from the original $n$-by-$n$ Identity matrix, $I_n$, with $m$ columns removed by forming the first set of minors in the $b_{ij} $ and removing the $m$ rows to form the second set of minors. We are left with an $n-m$-by-$n-m$ matrix from $I_{n}$. If the rows that were struck out do not match exactly the columns that were struck out then there will appear in the the reduced matrix rows and columns with all zero entries and the corresponding determinant vanishes. So in the second application of Laplace's Generalized theorem there is only one term surviving in the sum, for any given choice of $m$ numbers 
+$1 \le \rho_1 \le \rho_2 \le  ...\le \rho_m \le n$, the only term that survive is 
+\begin{equation}
+\begin{vmatrix}
+c_{1\rho_1} & c_{1\rho_2}  & \hdots & c_{1\rho_m}  \\
+c_{2\rho_1} & c_{2\rho_2}  & \hdots & c_{2\rho_m}  \\
+\hdotsfor[2]{4}\\
+c_{m\rho_1} & c_{m\rho_2}  & \hdots & c_{m\rho_m}  \\
+\end{vmatrix}
+\begin{vmatrix}
+b_{1\rho_1} & b_{1\rho_2}  & \hdots & b_{1\rho_m}  \\
+b_{2\rho_1} & b_{2\rho_2}  & \hdots & b_{2\rho_m}  \\
+\hdotsfor[2]{4}\\
+b_{m\rho_1} & b_{m\rho_2}  & \hdots & b_{m\rho_m}  \\
+\end{vmatrix}
+\end{equation}
+
+Putting both results together and using the fact that both methods give an expression for $\det M$ we obtain the Cauchy-Binet Formula for matrices $B$ ($n$-by-$m$) and $C$ ($m$-by-$n$) with $m\le n$:
+\begin{equation}
+\det(BC) =\sum_{\substack{\rho_1, \rho_2, ...,\rho_m =1 \\ \rho_1 < \rho_2 < ... < \rho_m}}^n \,
+\begin{vmatrix}
+c_{1\rho_1} & c_{1\rho_2}  & \hdots & c_{1\rho_m}  \\
+c_{2\rho_1} & c_{2\rho_2}  & \hdots & c_{2\rho_m}  \\
+\hdotsfor[2]{4}\\
+c_{m\rho_1} & c_{m\rho_2}  & \hdots & c_{m\rho_m}  \\
+\end{vmatrix}
+\begin{vmatrix}
+b_{1\rho_1} & b_{1\rho_2}  & \hdots & b_{1\rho_m}  \\
+b_{2\rho_1} & b_{2\rho_2}  & \hdots & b_{2\rho_m}  \\
+\hdotsfor[2]{4}\\
+b_{m\rho_1} & b_{m\rho_2}  & \hdots & b_{m\rho_m}  \\
+\end{vmatrix}
+\end{equation}\\
+ 
+Application 2: {\bf Alternate Derivation of the Cauchy-Binet Formula}\\
+ Let $A$ be an $m$-by-$n$ matrix and let $B$ be an $n$-by-$m$ matrix. Let $1\le j_1,j_2,...,j_m\le n$.
+ Let $A_{j_1j_2...j_m}$ denote the $m$-by-$m$ matrix consisting of the $m$ columns $j_1,j_2,...,j_m$ of $A$.
+ Let $B_{j_1j_2...j_m}$ denote the $m$-by-$m$ matrix consisting of the $m$ rows $j_1,j_2,...,j_m$ of $B$.
+ Let $\{k_1,k_2,...,k_m\}$ be an ordered $m$-tuple of integers and let $\{j_1,j_2,...,j_m\}$ be the same set of integers but arranged into non-decreasing order:
+ $$\j_1\le j_2 \le ... \le j_m.$$
+ 
+ Then we have the relationships that 
+ \begin{eqnarray*}
+ \det \left(B_{k_1k_2...k_m}\right) &=& \epsilon_{k_1k_2...k_m} \det \left(B_{j_1j_2...j_m}\right),\\
+ \det \left(B_{j_1j_2...j_m}  \right) &=& \epsilon_{k_1k_2...k_m}  \det \left(B_{k_1k_2...k_m}\right)\mbox{ no implied sum on } k_i's.
+\end{eqnarray*}\\
+ Now from the definition of determinant for the $m$-by-$m$ matrix $AB$ we have 
+ \begin{eqnarray*}
+ \det (AB) &=& \sum_{1\le l_1,...l_m \le m} \, \epsilon_{l_1l_2...l_m} \left( \sum_{k=1}^n a_{1k} b_{kl_1} \right) ... \left( \sum_{k=1}^n a_{mk}b_{kl_m}\right)  \\
+                &=& \sum_{1\le k_1,...k_m \le n} \, \left(a_{1k_1}...a_{mk_m}\right) \sum_{1\le l_1,...l_m \le m} \, \epsilon_{l_1l_2...l_m} b_{k_1l_1}  ... b_{k_ml_m} \\
+                &=& \sum_{1\le k_1,...k_m \le n} \, \left( a_{1k_1}...a_{mk_m} \right) \det \left(B_{k_1...k_m}\right)\\
+                &=& \sum_{1\le k_1,...k_m \le n} \, \left(a_{1k_1}...a_{mk_m} \epsilon_{k_1...k_m}\right) \det \left(B_{j_1...j_m}\right)\\
+                &=& \sum_{1\le k_1,...k_m \le n} \, \left(\epsilon_{k_1...k_m} \, a_{1k_1}...a_{mk_m}\right) \det \left(B_{j_1...j_m}\right)\\
+                &=& \sum_{1\le j_1 \le j_2 \le ...\le j_m \le n} \det \left(A_{j_1...j_m}\right)\,\det \left(B_{j_1...j_m}\right) \\
+ \end{eqnarray*}
+ 
+ If any two $j$'s are equal then $\det  \left(A_{j_1...j_m}\right) = 0$\\
+ 
+ In the case of $A$ and $B = A^T$ we immediately have
+$$ \det (AA^T) = \sum_{1\le j_1 \le j_2 \le ...\le j_m \le n} \left[ \det \left(A_{j_1...j_m}\right)\right]^2 $$
+ 

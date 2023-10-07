@@ -1,0 +1,145 @@
+\section{Resultant of Two Polynomials}
+
+
+\section{Resultant Expressed as a Sylvester Determinant}
+
+Consider two polynomials 
+\begin{align*}
+f(x)  &= \sum_{i=0}^n f_i\,x^{n-i} = f_0 x^n + f_1 x^{n-1} + f_2 x^{n-2} + \hdots + f_{n-1} x + f_n\\
+g(x) &=  \sum_{j=0}^m g_j\,x^{m-j} = g_0 x^m + g_1 x^{m-1} + g_2 x^{m-2} + \hdots + g_{m-1} x + g_m\\
+\end{align*}
+Let use assume that $f(x)$ and $g(x)$ have a common factor $(x-\alpha)$. Then 
+\begin{align*} f(x) &= (x-\alpha) f_1(x) \quad \hbox{and} \\
+                     g(x) & = (x-\alpha) g_1(x).\end{align*}
+Then $$f(x) g_1(x) = g(x) f_1(x) = {f(x) g(x) \over x-\alpha}.$$
+ 
+ Assuming that 
+\begin{align*}
+f_1(x)  &= -\sum_{i=0}^{n-1} z_i\,x^{n-1-i} = -(z_0 x^{n-1}  + z_1 x^{n-2}  + z_2 x^{n-3}  + \hdots  +z _{n-2} x + z_{n-1} ) \\
+g_1(x) &= \sum_{j=0}^{m-1} y_j\,x^{m-1-i} =  y_0 x^{m-1} + y_1 x^{m-2} + y_2 x^{m-3} + \hdots  + y_{m-2} x + y_{m-1} \\
+\end{align*}
+By equating like powers of $x$, we can write out a linear system corresponding to the equation $$f(x) g_1(x) - g(x) f_1(x) = 0$$ we find 
+\begin{align*}
+-g(x) f_1(x)  = ~ &g_0 z_0 x^{n+m-1}  + g_0 z_1 x^{n+m-2}  + g_0 z_2 x^{n+m-3}  + \hdots  + g_0 z_{n-2} x^{m+1} + g_0  z_{n-1}x^m + \\
+                      &g_1 z_0  x^{n+m-2}  + g_1 z_1 x^{n+m-3}  + \hdots  + g_1 z_{n-3} x^{m+1} + g_1 z_{n-2} x^{m} + g_1 z_{n-1} x^{m-1}  +\\
+                      &g_2 z_0  x^{n+m-3}  + g_2 z_1 x^{n+m-4}  + \hdots  + g_2 z_{n-3} x^{m} + g_2 z_{n-2} x^{m-1} + g_2 z_{n-1} x^{m-2}  +\\
+                      &\vdots  ~~~+ \\
+                      &\hdots  + (g_{m-2} z_{n-1} + g_{m-1} z_{n-2} + g_{m} z_{n-3} ) x^{2} + (g_{m-1} z_{n-1}  +  g_m z_{n-2} )x + g_m z_{n-1}\\
+\end{align*}
+\begin{align*}
+g(x) g_1(x)  = ~ &f_0 y_0 x^{n+m-1}  + f_0 y_1 x^{n+m-2}  + f_0 y_2 x^{n+m-3}  + \hdots  + f_0 y_{m-2} x^{n+1} + f_0  y_{n-1}x^n + \\
+                      &f_1 y_0  x^{n+m-2}  + f_1 y_1 x^{n+m-3}  + \hdots  + f_1 y_{n-3} x^{n+1} + f_1 y_{m-2} x^{n} + f_1 y_{n-1} x^{n-1}  +\\
+                      &f_2 y_0  x^{n+m-3}  + f_2 y_1 x^{n+m-4}  + \hdots  + f_2 y_{n-3} x^{n} + f_2 y_{m-2} x^{n-1} + f_2 y_{n-1} x^{n-2}  +\\
+                      &\vdots  ~~~+ \\
+                      &\hdots  + (f_{n-2} y_{m-1} + f_{n-1} y_{m-2} + f_{n} y_{m-3} ) x^{2} + (f_{n-1} y_{m-1}  +  f_n y_{m-2} )x + f_n y_{m-1}\\
+\end{align*}
+
+In order to satisfy $f(x) g_1(x) - g(x) f_1(x) = 0$, all the terms multiplying like powers of $x$ each must vanish. This can be arranged as a linear system in the vector $[ z_0,z_1,..., z_{n-1},y_0,y_2,...y_{m-1}]$. The coefficient matrix of this linear system is equal to the transpose of the Sylvester Resultant matrix which is defined as
+\begin{align*}
+R_{m,n}(g,f)=
+\underbrace{
+%\rdelim\}{4}{6mm}[$J$] \\ \\ \\[4mm]  \rdelim\}{3}{6mm}[$H$] \\ \\
+\begin{bmatrix}
+g_0 & \cdots & g_m & & \\
+&\ddots & \cdots & \ddots & \\
+& & g_0 & \cdots & g_m \\
+f_0 & \cdots & ~~~~~~f_n & & \\
+&\ddots & \cdots & \ddots & \\
+& &f_0 & \cdots &f_n \\
+\end{bmatrix}
+}_{m+n}
+\begin{array}{l}
+  \\[-8mm] \rdelim\}{3.7}{6mm}[$n$ lines] \\ \\ \\[4mm]  \rdelim\}{3}{6mm}[$m$ lines] \\ \\
+\end{array} \\[-1ex]
+\end{align*}
+
+The corresponding linear system that sets all the coefficients of the same powers of $x$ to $0$ in $f(x) g_1(x) - g(x) f_1(x) = 0$ is 
+\[
+\begin{bmatrix}
+g_0 & \cdots & g_m & & \\
+&\ddots & \cdots & \ddots & \\
+& & g_0 & \cdots & g_m \\
+f_0 & \cdots &~~~~~~f_n & & \\
+&\ddots & \cdots & \ddots & \\
+& &f_0 & \cdots &f_n \\
+\end{bmatrix}^T 
+\begin{bmatrix}
+z_0\\
+\vdots\\
+z_{n-1}\\
+y_0\\
+\vdots \\
+y_{m-1}\\
+\end{bmatrix} = 
+\begin{bmatrix}
+0\\
+\vdots\\
+0\\
+0\\
+\vdots\\
+0\\
+\end{bmatrix}
+\]
+
+The criterion for a non-trivial solution to the above linear system is 
+\[
+\det \begin{bmatrix}
+g_0 & \cdots & g_m & & \\
+&\ddots & \cdots & \ddots & \\
+& & g_0 & \cdots & g_m \\
+f_0 & \cdots & ~~~~~~f_n & & \\
+&\ddots & \cdots & \ddots & \\
+& &f_0 & \cdots &f_n \\
+\end{bmatrix} = 0\]
+The rank of the matrix $R_{m,n}(g,f)$ also gives the multiplicity of the common root of $f(x)$ and $g(x)$.
+The leading term of this determinant is $g_0^n f_n^m$. The terms of in the expansion an $(n + m) \times (n+m)$ matrix $M$  of the form
+$\sum_{\sigma}\epsilon_{r_1,r_2,r_3,\hdots r_{n+m}} m_{1r_1} m_{2r_2} m_{3r_3}  \hdots m_{(n+m) r_{n+m}} $ where the sum is over all permutations $\sigma$ of the numbers $[1,2,\hdots,n+m]$ and 
+$sgn(\sigma) = \epsilon_{r_1,r_2,r_3,\hdots r_{n+m}} $ is the sign of the permutation. In the case of the Sylvester Resultant the terms take the form 
+\[sgn(\sigma) g_0^{\nu_0}g_1^{\nu_1}\hdots g_m^{\nu_m} f_0^{\mu_0} f_1^{\mu_1} \hdots f_n^{\mu_n},\]
+where 
+\begin{align*}
+n &=  \nu_0 + \nu_1   +   \nu_2 + \hdots  + \nu_m \\ 
+m & =  \mu_0 + \mu_1  +  \mu_2 + \hdots  + \mu_n \\
+\end{align*}
+Factoring out $g_0^n f_0^m$ the generic term in the expansion of the determinant becomes
+\[sgn(\sigma) g_0^n f_0^m  ( {g_1\over g_0})^{\nu_1} ({g_2\over g_0})^{\nu_2} \hdots ({g_m \over g_0})^{\nu_m}  ({f_1\over f_0})^{\mu_1} ({f_2\over f_0})^{\mu_2} \hdots ({f_n\over f_0})^{\mu_n} \]
+Hence the Sylvester Resultant has the form 
+\[ R_{m,n}(g,f) = g_0^n f_0^m \phi(\alpha,\beta) \] where $\phi$ is an integral function of the roots $\alpha_i$ and $\beta_i$.
+As the determinant vanishes for any common roots $\alpha_i = \beta_k$, the determinant is divisible by $(\alpha_i - \beta_k)$ and the determinant is divisible by 
+\[ g_0^n f_0^m \prod_{i,k} (\alpha_i - \beta_k) \]
+
+\begin{theorem} $R_{m,n}(g,f)$ is a homogenous polynomial with integer coefficients $g_i,f_j$.
+\begin{itemize}
+\item[]{(i)} $R_{m,n}(g,f)$ is homogenous of degree $n$ in $g_m,...,g_0$ and degree $m$ in $f_n,...,f_0$.
+\item[]{(ii)}If $g_i$ and $f_i$ are regarded as having degree $i$. then $R_{m,n}(g,f)$ is homogenous of degree $mn$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+It is obvious that $R_{m,n}(g,f)$ is a homogenous polynomial with integer coefficients in the coefficients $g_i, f_j$, of total degree $m+n$.
+Moreover, to replace $g_i$ by $tg_i$ and $f_j$ by $uf_j$ in the Sylvester matrix means that we multiply each of the first $m$ rows by $t$
+and each of the last $n$ rows by $u$, and thus the determinant $R_{m,n}(g,f)$ by $t^mu^n$, which shows part ({\it{i}}). It is here best to 
+treat $g_i, f_j, t$ and $u$ as different inderminants a  do the calculations in $F(g_0,...,g_m, f_0,...,f_n, t,u)$.\\
+Similarly, ({\it ii}) follows because to replace each $g_i$ by $t^ig_i$ and each $f_j$ by $t^jf_j$ in $R_{m,n}(g,f)$ yields the same result as 
+multiplying the $i$th row by $t^{m+i}$ for $i=1,2,...,m$ and by $t^i$ for $i=m+1,...,m+n$, and the $j$th column by $t^{-j}$\/. The overall 
+effect it to multiply the determiant $R_{m,n}(g,f)$ by $t^K$ where $K = mn+\sum_{i=1}^{m+n} i - \sum_{j=1}^{m+n} j = mn$.\qed 
+\end{proof}
+
+%\begin{bmatrix}
+%z_0 \\
+%z_1 \\
+%\vdots \\
+% z_{m-1} \\
+%y_0 \\
+%\vdots\\
+%y_{n-1} \\
+%\end{bmatrix}^T 
+%= 
+%\begin{bmatrix}
+%0 \\
+%0 \\
+%\vdots \\
+%0\\
+%0 \\
+%\vdots\\
+%0 \\
+%\end{bmatrix}

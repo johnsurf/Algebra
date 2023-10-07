@@ -1,0 +1,203 @@
+%\[ 
+%M(z)= 
+%\begin{array}{c@{}c}
+%\left[
+% \begin{BMAT}[5pt]{c|c}{c}
+%    \begin{BMAT}[5pt]{c:c:c}{ccccccc}
+%     & & \\
+%      & & \\
+%      & & \\
+%      v_1 & \dots & v_m \\
+%      & & \\
+%      & & \\
+%      & &
+%    \end{BMAT}
+%    &
+%    \begin{BMAT}{c}{c|c}
+%      \begin{BMAT}[5pt]{c:c:c}{ccc}
+%        & & \\
+%        w_1(a) & \dots & w_n(a) \\
+%        & &
+%      \end{BMAT}
+%      \\
+%      \begin{BMAT}[10pt]{c}{c}
+%        B(z)
+%      \end{BMAT}
+%    \end{BMAT}
+%  \end{BMAT} 
+%\right] 
+%& 
+%\begin{array}{l}
+%  \\[-8mm] \rdelim\}{4}{6mm}[$J$] \\ \\ \\[4mm]  \rdelim\}{3}{6mm}[$H$] \\ \\
+%\end{array} \\[-1ex]
+%\hexbrace{2.7cm}{m}\hexbrace{3.8cm}{n}
+`%\end{array}
+%\]
+
+\section{Vandermonde Determinant}
+
+The Vandermonde Determinant for n variables $x = [x_1, x_2, \hdots, x_n]$ is given by 
+
+$$V_n(x) =  
+\begin{bmatrix}
+1 & x_1 & x_1^2 &  x_1^3 & \hdots & x_1^n \\
+1 & x_2 & x_2^2 &  x_2^3 &\hdots &x_2^n \\
+1 &  x_3 & x_3^2 & x_3^3 &\hdots & x_2^n \\
+\vdots \\
+1 & x_n & x_n^2 & x_n^3 &\hdots & x_n^n \\
+\end{bmatrix}
+$$
+
+Except for the first column, subtract $x_1$ times the previous column to the rest of the columns. Since a multiple of any column added to any other column does not change the determinant, we can write
+$$\det{V_n(x)} =  
+\det{\begin{bmatrix}
+1 & 0 & 0 & 0 & \hdots & 0 \\
+1 & x_2 - x_1 & x_2(x_2 - x_1) & x_2^2(x_2 - x_1) & \hdots & x_2^{n-1}(x_2-x_1) \\
+1 &  x_3 -x_1 & x_3(x_3 - x_1) & x_3^2(x_3 - x_1) & \hdots & x_3^{n-1}(x_3-x_1) \\
+\vdots \\
+1 & x_n-x_1 & x_n(x_n - x_1) & x_n^2(x_n - x_1) & \hdots & x_n^{n-1}(x_n-x_1) \\
+\end{bmatrix}}
+$$
+
+Expanding the determinant using the elements in the first row we have
+
+$$\det{V_n(x)} =  
+\det{\begin{bmatrix}
+x_2 - x_1 & x_2(x_2 - x_1) & x_2^2(x_2 - x_1) & \hdots & x_2^{n-1}(x_2-x_1) \\
+x_3 -x_1 & x_3(x_3 - x_1) & x_3^2(x_3 - x_1) & \hdots & x_3^{n-1}(x_3-x_1) \\
+\vdots \\
+x_n-x_1 & x_n(x_n - x_1) & x_n^2(x_n - x_1) & \hdots & x_n^{n-1}(x_n-x_1) \\
+\end{bmatrix}}
+$$
+
+Factoring out $x_2-x_1$ from the first row, $x_3-x_1$ from the second row, and so on until the last row we have
+
+$$\det{V_n(x_1,x_2,\hdots,x_n)} =  
+[\prod_{i = 2}^n (x_i - x_1)] 
+\det{\begin{bmatrix}
+1 & x_2  & x_2^2 & \hdots & x_2^{n-1} \\
+1 & x_3  & x_3^2 & \hdots & x_3^{n-1} \\
+\vdots \\
+1 & x_n & x_n^2 & \hdots & x_n^{n-1} \\
+\end{bmatrix} }=
+\prod_{i = 2}^n (x_i - x_1) \, \det{V_{n-1}(x_2,x_3,\hdots,x_n)}
+$$
+ 
+ Proceeding in a similar way by subtracting $x_2$ times the previous column except for the first column we can continue
+$$\det{V_n(x_1,x_2,\hdots,x_n)} =  
+[\prod_{i = 2}^n (x_i - x_1)] \,
+[\prod_{i = 3}^n (x_i - x_2)] \, \det{V_{n-2}(x_3,x_4,\hdots,x_n)}
+$$
+To arrive at 
+$$\det{V_n(x_1,x_2,\hdots,x_n)} =  \prod_{\substack{1 < j \\ i < j}}^n (x_j - x_i) =  \prod_{1 \le i < j \le  n } (x_j - x_i)
+$$
+
+\section{Cayley-Hamilton Theorem}
+
+The characteristic equation for eigenvalues $0 = \det|{A - \lambda I |}$ can be expanded as a polynomial in $\lambda$ 
+\[ \phi(\lambda) = \det{|A - \lambda I|} = a_n\lambda^n + a_{n-1}\lambda^{n-1} +\hdots + a_1 \lambda + a_0, \quad a_n = (-1)^n.\]
+And the characteristic equation can be written in the form $\phi(\lambda) = 0$.\\
+
+If in any polynomial $f(\lambda) = \sum c_i \lambda^i$ we substitute the matrix $A$ for $\lambda$ and multiply the constant term
+$c_0$ by $I$, we obtain a matrix denoted by $f(A)$.
+
+\begin{theorem} (Cayley-Hamilton) Any square matrix satisfies its characteristic equation. \end{theorem}
+
+\begin{proof}
+Let $\phi(\lambda)$ be the characteristic determinant of $A$. We want to show that $\phi(A) = 0$.  Since the elements of $A - \lambda I$ are 
+linear functions of $\lambda$, and the elements of its adjoint [the transpose of the matrix of signed minors of $A-\lambda I$ -- denoted by Adj\_$(A-\lambda I)$] are (n-1)-rowed  determinants,
+they are polynomials in $\lambda$ of degree $\le n-1$. Let $C$ stand for the Adj-$(A-\lambda I)$.
+If the element in the i-th row and j-th column of $C$ is $\sum_k c_{ijk}\lambda^k$, then 
+
+\[ C = \sum_{k=0}^{n-1} C_k \lambda^k, \quad C_k = (c_{ijk})\quad (i,j = 1, 2, \hdots, n) \]
+ 
+ Using the relationship between the adjoint and the determinant, $\phi(\lambda) = \det{|A - \lambda I|}$, we can write
+ 
+ \[ (A - \lambda I) C = \phi(\lambda) I. \] This expression can be expanded as 
+ \[ A \sum_{k = 0} ^{n-1} C_k \lambda^k  - \lambda \sum_{k=0}^{n-1} C_k \lambda^k = \sum_{k=0}^n a_k \lambda^k  I \]
+ 
+ Equating the terms free of $\lambda$ and the coefficients of $\lambda, \lambda^1, ..., \lambda^{n-1}, \lambda^n$ we get
+ 
+ \begin{eqnarray*}
+ AC_0                      &=& a_0 I,\\
+ AC_1 - C_0            &=& a_1 I,\\
+ AC_2 - C_1            &=& a_2 I,\\
+ \hdots                     &~& \hdots \\
+ AC_{n-1} - C_{n-2} &=& a_{n-1} I,\\
+-C_{n-1}                  &=& a_n I.
+\end{eqnarray*}
+
+Multiply these equations on the left by $I, A, A^2, ..., A^{n-1}, A^n$ respectively and add; we get
+
+\[ 0 = a_0 I + a_1 A + a_2 A^2 + \hdots + a_{n-1}A^{n-1} + a_n A^n = \phi(A), \] and we see that the matrix $A$ satisfies its own
+characteristic equation.  \qed
+\end{proof}
+
+\section{Sylvesters Criterion for Positive Definite Hermitian Matrices}
+
+\begin{theorem} (Sylvester's Criterion)  An $n$-x-$n$ Hermitian matrix M is positive-definite if and only if all the leading principal minors are positive. 
+\end{theorem}
+
+\begin{proof}
+Let $M$ be an n x n Hermitian positive definite matrix. Then $0 \le x^\dagger M x$ if $x$ is not the zero vector. Let $M_k$ be the $k$-th leading principal minor 
+(the first $k$-rows and $k$-columns in the upper left hand corner of $M$). Select a non-zero vector $x$ as follows 
+
+\[ x = 
+\begin{bmatrix}
+x_1 \\
+\vdots \\
+x_k\\
+0\\
+\vdots\\
+0
+\end{bmatrix}
+= 
+\begin{bmatrix}
+\vec{x}\\
+0\\
+\vdots\\
+0
+\end{bmatrix}
+\]
+
+Then we have that $0 \le x^\dagger M x = \vec{x}^\dagger M_k \vec{x}$. Therefore, since $\vec{x} \ne \vec{0}$ is otherwise arbitrary, then all the eigenvalues of $M_k$ must be
+positive and hence  $\det|M_k| > 0 $
+
+To prove the reverse implication, we use induction. The general form of an $(n+1)$-x-$(n+1)$ Hermitian matrix is
+
+\[ M_{n+1} = 
+\begin{bmatrix}
+M_n & \vec{v}\\
+\vec{v}^\dagger & d
+\end{bmatrix}
+\]
+
+Denote the $(n+1)$ dimensional vector $x$ as 
+
+\[ x = 
+\begin{bmatrix}
+\vec{x} \\
+x_{n+1}
+\end{bmatrix}
+\]
+
+Then 
+
+\[ x^\dagger M_{n+1} x = \vec{x}^\dagger M_n \vec{x} + x_{n+1} \vec{x}^\dagger \vec{v} + \overline{x}_{n+1} \vec{v}^\dagger \vec{x} + d |x_{n+1}|^2 \]
+
+By completing the square, this last expression is equal to 
+\[ (\vec{x}^\dagger + \vec{v}^\dagger M_n^{-1} \overline{x}_{n+1}) M_n (\vec{x} +  x_{n+1}M_n^{-1} \vec{v} ) - |x_{n+1}|^2  \vec{v}^\dagger M_n^{-1} \vec{v} + d|x_{n+1}|^2 \]
+\[ = (\vec{x} + \vec{c})^\dagger M_n (\vec{x} + \vec{c}) + |x_{n+1}|^2 (d - \vec{v}^\dagger M_n^{-1} \vec{v}), \] where $\vec{c} = x_{n+1} M_n^{-1}\vec{v}$. $M_n^{-1}$ exists because
+the eigenvalues of $M_n$ are all positive. The first term is positive by the induction hypothesis.  Using this useful determinant expansion
+
+\[ \det{ \begin{bmatrix}
+A & B  \\
+C & D \\
+\end{bmatrix}} = \det{|A|} \det{ | D - C A^{-1}B | } \]
+
+We have that 
+\[ \det{|M_{n+1}|} = \det{|M_n|}(d - \vec{v}^\dagger M_n^{-1} \vec{v} )> 0,\]
+which implies $(d - \vec{v}^\dagger M_n^{-1} \vec{v}) > 0$. 
+Hence $x^\dagger M_{n+1} x > 0$ (is also positive definite). 
+\qed
+\end{proof}

@@ -1,0 +1,15 @@
+\section{Chinese Remainder Theorem}
+
+Consider a sequence of congruence equations: 
+\begin{align*}
+x &\equiv a_1 \pmod{n_1}\\
+&\vdots \\
+x &\equiv a_k  \pmod{n_k},\\
+\end{align*}where the $n_i$ are coprime in pairs. Let $N = n_1 n_2 \hdots n_k$ and define $N_i = N/n_i$ be the product of all moduli but one. As the $n_i$ are pairwise coprime, $N_i$ and $n_i$ are coprime. Therefore, by the Bezout identity, there exist integers $M_i$ and $m_i$ such that $$M_i N_i + m_i n_i = 1.$$ Therefore a solution to the system of congruences is $$x = \sum_{i=1}^k a_iM_iN_i.$$
+\begin{definition}
+We restate the result as: if the $n_i$ are pairwise coprime, the map 
+$$ x \pmod{N} \rightarrow (x\pmod{n_1},\hdots,x\pmod{n_k})$$ defines a ring homomorphism
+$$\Z /N \Z \cong \Z /n_1\Z \times \hdots \times \Z/n_k\Z$$between the ring of integers modulo $N$ and the direct product of rings of integers modulo the $n_i$. This means that for doing a sequence of arithmetic operations in $\Z/N\Z$, one may do the same computation independently in each $\Z/n_i\Z$ and then get the result by applying the isomorphism (from the right to the left). 
+\end{definition}
+
+$$R /(\cap A_i) \cong R /(A_1) \times \hdots \times R/(A_k)$$We have a surjective map and know the kernel is the intersection of all the $A_i$'s. If you take a map and quotient by the kernel, then that is isomorphic to the image -- which is the whole set (everything) because the map is surjective. Therefore the LHS is isomorphic to the RHS.
